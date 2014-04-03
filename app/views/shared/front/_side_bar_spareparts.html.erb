@@ -38,7 +38,7 @@
 				</div>
 				<div class="input_wrapper">
 					<label><span>* </span><strong>Price </strong></label>
-			    <%= f.select :price, options_for_select(@prices,search.present? ? search[:price] : ''), {}, class: 'select_5' %>
+			    <%= f.select :price, options_for_select(@prices,search.present? ? search[:price] : ''), {include_blank: 'Select Price'}, class: 'select_5' %>
 				</div>
 				<div class="input_wrapper" style="width:100%">
 					<label><span>* </span><strong>Keyword:</strong></label>
