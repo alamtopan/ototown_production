@@ -9,8 +9,8 @@
 		<div class="scrool">
 			<% @news_list.each do |news_list| %>
 				<div class="news_box">
-					<h5><%= link_to "#{news_list.title}", detail_news_path(news_list.id) %></h5>
-					<%= link_to detail_news_path(news_list.id) do %>
+					<h5><%= link_to "#{news_list.title}", detail_news_path(news_list.slug) %></h5>
+					<%= link_to detail_news_path(news_list.slug) do %>
 						<%= image_tag "#{news_list.pic}", class: "full-100" %>
 					<% end %>
 					<div class="date"><span><%= news_list.created_at.strftime('%d %b %Y - at %I:%M%p') %></span></div>

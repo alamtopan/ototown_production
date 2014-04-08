@@ -1,8 +1,8 @@
 <h1><%= @news.title %></h1>
 <div class="grey_area">
-	<a href="example" class="blog_date"><%= @news.created_at.strftime('%d %b %Y - at %I:%M%p') %></a>
+	<%= @news.created_at.strftime('%d %b %Y - at %I:%M%p') %>
 	<div class="blog_category">
-		<a href="example"><%= @news.category_news.try(:title) %></a>
+		<%= @news.category_news.try(:title) %>
 	</div>
 </div>
 <br>
@@ -10,7 +10,7 @@
 	<div class="blog_single_post">
 		<div class="post">
 			<p>
-				<%= link_to detail_news_path(@news.id) do %>
+				<%= link_to detail_news_path(@news.slug) do %>
 					<%= image_tag "#{@news.pic}", class: "thumb left-float" %>
 				<% end %>
 				<%= @news.content.html_safe %></p>
@@ -28,5 +28,5 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="fb-comments"data-href="<%= detail_news_url(@news.id) %>" data-num-posts="10" data-colorscheme="light" mobile="false">
+<div class="fb-comments"data-href="<%= detail_news_url(@news.slug) %>" data-num-posts="10" data-colorscheme="light" mobile="false">
 </div>
