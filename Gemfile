@@ -64,6 +64,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'rest-client', '~> 1.6.7'
 end
 
 # Use ActiveModel has_secure_password
