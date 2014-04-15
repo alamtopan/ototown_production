@@ -47,14 +47,14 @@ class PublicsController < ApplicationController
       search_params[:price_to] = price_tab[1]
       search_params[:price_from] = price_tab[0]
     end
-		@products = Product.published.filter_search(search_params).page(params[:page])
+    @products = Product.published.filter_search(search_params).page(params[:page])
     unless @products.present?
       flash[:alert] = "Search Data Not Found"
-      if request.env["HTTP_REFERER"].present?
-        redirect_to :back
-      else
+      # if request.env["HTTP_REFERER"].present?
+      #   redirect_to :back
+      # else
+      # end
         redirect_to root_path
-      end
     else
       render layout: 'application_catalog'
     end

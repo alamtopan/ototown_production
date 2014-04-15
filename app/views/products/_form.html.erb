@@ -107,7 +107,7 @@
 				<label><span>* </span><strong>Fuel:</strong></label>
 	      <%= f.text_field :fuel, class: 'text full_100', placeholder: 'Fuel' %>
 			</div>
-			<div class="select_wrapper">
+			<div class="select_wrapper cars">
 				<label><span></span><strong>Color: </strong></label>
 		    <%= f.select :color, options_for_select(@colors,@product.color), {include_blank: 'Choose One'}, class: 'text' %>
 			</div>

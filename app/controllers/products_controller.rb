@@ -1,6 +1,6 @@
 class ProductsController < UsersController
 	layout 'application_user'
-	before_action :set_product, except: [:index, :archive, :new, :create]
+	before_action :set_product, except: [:index, :archive, :new, :create,:mass_actions]
 	before_action :generate_select, except: [:index, :archive, :destroy, :change_status]
 
 	def index
