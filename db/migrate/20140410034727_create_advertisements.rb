@@ -9,6 +9,7 @@ class CreateAdvertisements < ActiveRecord::Migration
       t.string :phone
       t.text :address
       t.integer :price
+      t.boolean :active
 
       t.timestamps
     end
