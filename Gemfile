@@ -49,8 +49,6 @@ group :assets do
   gem 'mini_magick'
   gem 'ckeditor'
   gem 'acts-as-taggable-on'
-  gem 'nokogiri'
-  gem 'rest-client', '~> 1.6.7'
 end
 
 group :doc do
@@ -58,8 +56,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
-end
+gem 'nokogiri', group: [:development, :production]
+gem 'rest-client', '~> 1.6.7', group: [:development, :production]
 
 group :production do
   gem 'pg'
