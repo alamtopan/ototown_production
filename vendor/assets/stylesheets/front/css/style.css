@@ -637,18 +637,20 @@ img.aligncenter {
 	float: left;
 	width: 180px;
 	margin: 0 20px 0 0;
-	padding: 19px 19px 28px;
+	padding: 19px 19px 28px; 
+	min-height: 250px; 
 }
 .recent_blog .post_block.last{
 	margin: 0;
 }
 .recent_blog .post_block a.thumb{
 	margin: 0 0 17px 0;
+	height: 120px;
+	overflow: hidden;
 }
 .recent_blog .post_block img,
 .recent_blog .post_block a.thumb{
 	width: 178px;
-	height: 133px;
 	display: block;
 }
 .recent_blog .post_block img{
@@ -1467,9 +1469,10 @@ img.aligncenter {
 	padding: 18px 15px 25px 18px;
 }
 .banner_1{
-	background: url(../../../assets/recent_description.png) repeat 0 0;
+	background: #222;
 	width: 425px;
 	float: left;
+	overflow: hidden;
 }
 .banner_2{
 	background: url(../../../assets/banners/bg_banner_2.jpg) repeat-x 0 0 #f25a23;

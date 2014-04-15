@@ -488,8 +488,8 @@ only screen and (min-device-width: 10px) and (max-device-width: 400px){
 		margin: 0;
 	}
 	.recent_blog .post_block a.thumb{
-		margin: 0 0px 20px 0;
 		float: none;
+		height: auto;
 	}
 	/*
 	================================================================================

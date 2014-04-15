@@ -325,8 +325,8 @@ only screen and (min-device-width: 500px) and (max-device-width: 600px){
 		margin: 0;
 	}
 	.recent_blog .post_block a.thumb{
-		margin: 0 20px 0px 0;
 		float: left;
+		height: auto;
 	}
 	/*
 	================================================================================
