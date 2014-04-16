@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Ototown</title>
-  <%= stylesheet_link_tag    "application_backend", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application_backend" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -24,6 +24,6 @@
     </div>
   </div>
   <%= render 'backend/shared/modal_content' %>
-	<%= javascript_include_tag "application_backend", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application_backend" %>
 </body>
 </html>
