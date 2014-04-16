@@ -11,6 +11,7 @@
 	*= require_self
 	*= require back/bootstrap.min
 	*= require back/plugins
+	*= require back/themes
 	*= require back/overide
 	*= require datepicker
 	*= require autocomplite

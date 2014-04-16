@@ -51,6 +51,22 @@ group :assets do
   gem 'acts-as-taggable-on'
 end
 
+group :development, :test do
+  gem 'debugger'
+  gem 'quiet_assets'
+  gem 'letter_opener'
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv', "~> 2.0" 
+end
+
+group :production, :staging do
+  gem 'unicorn'
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -59,19 +75,5 @@ end
 gem 'nokogiri', group: [:development, :production]
 gem 'rest-client', '~> 1.6.7', group: [:development, :production]
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-gem 'debugger', group: [:development, :test]
