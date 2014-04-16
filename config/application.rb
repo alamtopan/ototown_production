@@ -24,5 +24,6 @@ module Ototown
     # config.i18n.default_locale = :de
     config.assets.enabled = true
     config.assets.initialize_on_precompile = true
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
   end
 end
