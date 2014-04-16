@@ -24,7 +24,7 @@ module Ototown
     # config.i18n.default_locale = :de
     config.assets.enabled = true
     config.assets.initialize_on_precompile = false
-    config.assets.precompile += ['application.css', 'application_backend.css', 
+    config.assets.precompile += ['application.css', 
                                  'bootstrap-select.min.css','application.js', 
                                  'application_backend.js', 'bootstrap-select.min.js']
     # config/application.rb
