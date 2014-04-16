@@ -25,5 +25,6 @@ module Ototown
     config.assets.enabled = true
     config.assets.initialize_on_precompile = true
     config.assets.precompile += %w( .svg .eot .woff .ttf )
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   end
 end
