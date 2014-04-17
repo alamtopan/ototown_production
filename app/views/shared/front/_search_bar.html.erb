@@ -60,7 +60,7 @@
 					</div>
 					<div class="input_wrapper hm">
 						<label><span>* </span><strong>Price:</strong></label>
-				    <%= f.select :price, options_for_select(@prices), {}, class: 'select_5' %>
+				    <%= f.select :price, options_for_select(@prices), {include_blank: 'Select Price'}, class: 'select_5' %>
 					</div>
 					<div class="select_wrapper hm">
 						<label><span>* </span><strong>Province </strong></label>
