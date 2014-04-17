@@ -12,8 +12,10 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_many :images, class_name: 'ImageProduct', dependent: :destroy
+  has_one :advertise, foreign_key: 'product_id'
 
   accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :advertise, reject_if: :all_blank, allow_destroy: true
 
   validates :name, :category_id, :condition, :user_id, presence: true
   validates_length_of :price, maximum: 12
@@ -84,4 +86,11 @@ class Product < ActiveRecord::Base
   def slug_candidates
     "#{id}-#{name}"
   end
+
+  after_initialize :after_initialized
+
+  protected
+    def after_initialized
+      self.advertise = Advertise.new if self.advertise.blank?
+    end
 end

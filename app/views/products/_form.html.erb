@@ -133,6 +133,13 @@
 		</div>
 	</div>
 	<div class="sell_box step_3" style="display: none;">
+		<div class="cars">
+			<h2><strong>Credit</strong> & Simulation</h2>
+			<div id="loaded-images"></div>
+			<%= f.fields_for (:advertise) do |adv| %>
+		    <%= render 'advertise_form', f: adv %>
+		  <% end %>
+		</div>
 		<h2><strong>Vehicle</strong> photos</h2>
 		<div id="loaded-images"></div>
 		<%= f.fields_for :images do |image| %>
