@@ -10,5 +10,11 @@ class Car < Product
   accepts_nested_attributes_for :advertise, reject_if: :all_blank, allow_destroy: true
 
   default_scope { where(category_id: CATEGORY) }
+  
+  after_initialize :after_initialized
 
+	protected
+    def after_initialized
+      self.advertise = Advertise.new if self.advertise.blank?
+    end
 end

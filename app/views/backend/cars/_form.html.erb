@@ -146,7 +146,7 @@
 </fieldset>
 <fieldset>
   <legend><i class="fa fa-angle-right"></i> Price Credits </legend>
-  <%= f.fields_for @advertise do |adv| %>
+  <%= f.fields_for (:advertise) do |adv| %>
     <%= render 'advertise_form', f: adv %>
   <% end %>
 </fieldset>

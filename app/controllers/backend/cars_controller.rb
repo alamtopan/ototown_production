@@ -2,7 +2,6 @@ class Backend::CarsController < Backend::ApplicationController
   defaults :resource_class => Car, :collection_name => 'cars', :instance_name => 'car'
   prepend_before_filter :generate_select, except: [:index,:show]
   prepend_before_filter :set_car, except: [:new, :create, :index]
-  prepend_before_filter :set_advertise, only: [:new, :create]
   before_filter :choice_condition
   before_filter :choice_status
 
@@ -22,10 +21,6 @@ class Backend::CarsController < Backend::ApplicationController
     def set_car
       @car = Car.find_by(slug: params[:id])
       @advertise = @car.advertise
-    end
-
-    def set_advertise
-      @advertise = Advertise.new(car: Car.new)
     end
 
     def choice_condition
