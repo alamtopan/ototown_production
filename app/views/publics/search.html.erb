@@ -1,9 +1,13 @@
-<% if @products.first.category_id == 1 %>
-  <%= render 'shared/front/paginate_result/paginate_result_cars' %>
-  <%= render 'shared/front/side_bar_cars' %>
-<% elsif @products.first.category_id == 2 %>
-  <%= render 'shared/front/paginate_result/paginate_result_spareparts' %>
-  <%= render 'shared/front/side_bar_spareparts' %>
+<% if @products.blank? %>
+    <%= render 'shared/front/side_bar_cars' %>
+<% else %>
+  <% if @products.first.category_id == 1 %>
+    <%= render 'shared/front/paginate_result/paginate_result_cars' %>
+    <%= render 'shared/front/side_bar_cars' %>
+  <% elsif @products.first.category_id == 2 %>
+    <%= render 'shared/front/paginate_result/paginate_result_spareparts' %>
+    <%= render 'shared/front/side_bar_spareparts' %>
+  <% end %>
 <% end %>
 <div class="main_catalog" style="padding-top:0px;">
   <ul class="catalog_table">

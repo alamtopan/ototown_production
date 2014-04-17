@@ -9,32 +9,32 @@
 					<div class="select_wrapper hm">
 						<span class="custom_chb_wrapper">
 							<span class="custom_chb">
-								<% #f.radio_button :condition, "All",params[:search][:condition] == 'all' {id: "all",params[:search][:condition] == 'all'} %>
-								<!--<label for="all"></label><span class="fr">ALL</span> -->
+								<%= f.radio_button :condition, "All", {id: "all", checked: params[:search].present? ? params[:search][:condition] == 'All' : ''} %>
+								<label for="all"></label><span class="fr">ALL</span> 
 							</span>
 						</span>
 					</div>
 					<div class="select_wrapper hm">
 						<span class="custom_chb_wrapper">
 							<span class="custom_chb">
-								<% #f.radio_button :condition, "Used", {id: "used", checked: true} %>
-								<!--<label for="used"></label><span class="fr">USED</span>-->
+								<%= f.radio_button :condition, "Used", {id: "used", checked: params[:search].present? ? params[:search][:condition] == 'Used' : '' } %>
+								<label for="used"></label><span class="fr">USED</span>
 							</span>
 						</span>
 					</div>
 					<div class="select_wrapper hm">
 						<span class="custom_chb_wrapper">
 							<span class="custom_chb">
-								<% #f.radio_button :condition, "New",params[:search][:condition] == 'New' {id: "new",checked: params[:search][:condition] == 'New'} %>
-								<!--<label for="new"></label><span class="fr">NEW</span>-->
+								<%= f.radio_button :condition, "New",  {id: "new", checked: params[:search].present? ? params[:search][:condition] == 'New' : ''} %>
+								<label for="new"></label><span class="fr">NEW</span>
 							</span>
 						</span>
 					</div>
 					<div class="select_wrapper hm">
 						<span class="custom_chb_wrapper">
 							<span class="custom_chb">
-								<% #f.radio_button :condition, "Classic", {id: "classic",checked: params[:search][:condition] == 'Classic'} %>
-								<!--<label for="classic"></label><span class="fr">CLASSIC</span>-->
+								<%= f.radio_button :condition, "Classic", {id: "classic", checked: params[:search].present? ? params[:search][:condition] == 'Classic' : ''} %>
+								<label for="classic"></label><span class="fr">CLASSIC</span>
 							</span>
 						</span>
 					</div>
