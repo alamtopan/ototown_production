@@ -84,7 +84,7 @@ class ProductsController < UsersController
       colors = ['Black','Red','White','Blue','Silver','Pink','Gray','Metalic','Silver Stone','Green',
         'Yellow','Purple','Maroon']
       @colors = colors.map{|c| [c,c]}
-      @transmissions = ['Auto','Mechanic'].map{|tr| [tr,tr]}
+      @transmissions = ['M/T Manual','A/T Automatic'].map{|tr| [tr,tr]}
     end
 
     def product_params
