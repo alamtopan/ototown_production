@@ -3,17 +3,18 @@ class User < Operator
 
   attr_accessible :email, :username, :password, :password_confirmation, :profile_attributes, :role_id,
                   :dealer_info_attributes, :images_attributes
+
   devise :database_authenticatable, :lockable, :timeoutable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :products
-  
+
   after_initialize :after_initialized
 
-  has_many :images, foreign_key: 'dealer_id', class_name: 'ImageDealer', :dependent => :destroy 
-  has_one :profile, foreign_key: 'user_id', :dependent => :destroy 
-  has_one :dealer_info, foreign_key: 'dealer_id', :dependent => :destroy 
+  has_many :images, foreign_key: 'dealer_id', class_name: 'ImageDealer', :dependent => :destroy
+  has_one :profile, foreign_key: 'user_id', :dependent => :destroy
+  has_one :dealer_info, foreign_key: 'dealer_id', :dependent => :destroy
   accepts_nested_attributes_for :profile, reject_if: :all_blank
   accepts_nested_attributes_for :dealer_info, reject_if: :all_blank
   accepts_nested_attributes_for :images, :reject_if => :all_blank, :allow_destroy => true
@@ -57,5 +58,5 @@ class User < Operator
       self.profile = Profile.new if self.profile.blank?
       self.dealer_info = DealerInfo.new if self.dealer_info.blank?
     end
-  
+
 end

@@ -225,8 +225,13 @@ ActiveRecord::Schema.define(version: 20140422065746) do
     t.string   "username"
     t.string   "provider"
     t.string   "uid"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
+  add_index "operators", ["confirmation_token"], name: "index_operators_on_confirmation_token", unique: true, using: :btree
   add_index "operators", ["email"], name: "index_operators_on_email", unique: true, using: :btree
   add_index "operators", ["reset_password_token"], name: "index_operators_on_reset_password_token", unique: true, using: :btree
   add_index "operators", ["role_id"], name: "index_operators_on_role_id", using: :btree

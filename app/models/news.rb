@@ -10,7 +10,7 @@ class News < ActiveRecord::Base
                                      :thumb => "100x100>" 
                                     }, 
                                     :default_url => "/assets/no-image.jpg"
-                                    
+
   validates_attachment :pic, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
   scope :published,  -> { where('(publish IS NULL OR unpublish IS NULL) OR (publish <= NOW() AND unpublish >= NOW())').order("news.id DESC") }
 

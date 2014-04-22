@@ -1,8 +1,8 @@
 <h1><%= @page.title %></h1>
 <div class="grey_area">
-	<a href="example" class="blog_date"><%= @page.created_at.strftime('%d %b %Y - at %I:%M%p') %></a>
+	<%= @page.created_at.strftime('%d %b %Y - at %I:%M%p') %>
 	<div class="blog_category">
-		<a href="example"><%= @page.category.try(:title) %></a>
+		<%= @page.category.try(:title) %>
 	</div>
 </div>
 <br>

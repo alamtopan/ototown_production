@@ -15,9 +15,9 @@
 			<div class="blog_desc">
 				<h4><%= link_to "#{news.title}", detail_news_path(news) %></h4>
 				<div class="grey_area padding-left10">
-					<a href="example" class="blog_date"><%= news.created_at.strftime('%d %b %Y - at %I:%M%p') %></a>
+					<%= news.created_at.strftime('%d %b %Y - at %I:%M%p') %>
 					<div class="blog_category">
-						<a href="example"><%= news.category_news.try(:title) %></a>
+						<%= news.category_news.try(:title) %>
 					</div>
 				</div>
 				<div class="post">
