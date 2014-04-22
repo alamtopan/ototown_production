@@ -7,7 +7,7 @@
 <div class="col_2">
   <div class="input_wrapper">
     <label><span>* </span><strong>Price:</strong></label>
-    <%= f.number_field :price, class: 'text full_100', placeholder: 'Price', required: true %>
+    <%= f.text_field :price, data: {autonumeric: true}, class: 'text full_100', placeholder: 'Price', required: true %>
   </div>
   <div class="input_wrapper">
     <label><span>* </span><strong>Loan Term:</strong></label>
@@ -21,6 +21,6 @@
   </div>
   <div class="input_wrapper cars">
     <label><span>* </span><strong>Down Payment:</strong></label>
-    <%= f.number_field :down_payment, class: 'text full_100', placeholder: 'Down Payment', required: true %>
+    <%= f.text_field :down_payment, data: {autonumeric: true}, class: 'text full_100', placeholder: 'Down Payment', required: true %>
   </div>
 </div>

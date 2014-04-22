@@ -68,7 +68,8 @@
 							<div>
 								<b>Location: </b>
 								<br/>
-								<%= @sparepart.location %>
+								<span class="glyphicon glyphicon-map-marker"></span> <%= @sparepart.location %> , 
+								<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@sparepart.created_at) %>
 							</div><br/>
 							<%= @sparepart.description.html_safe %>
 							<p></p>
@@ -98,7 +99,9 @@
 									<div class="post">
 										<%= image_tag @sparepart.user.profile.avatar.url(:medium), style: 'max-width:70px;float:left;margin-right:20px;' %>
 										<p><b><%= @sparepart.user.profile.full_name %></b></p>
-										<p class="member-at">Join At : <br><%= @sparepart.user.created_at.strftime('%d %b %Y') %></p>
+										<p class="member-at">Join At : <br>
+											<%= time_ago_in_words(@sparepart.user.created_at) %>
+										</p>
 										<div class="clear"></div>
 									</div><br>
 									<div class="addr detail"><%= @sparepart.user.profile.address %></div>

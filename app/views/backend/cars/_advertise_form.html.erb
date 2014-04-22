@@ -8,7 +8,7 @@
   <%= f.label :price, class: 'col-md-4 control-label' %>
   <div class="col-md-6">
     <div class="input-group">
-      <%= f.number_field :price, class: 'form-control', placeholder: 'Price', required: true %>
+      <%= f.text_field :price, data: {autonumeric: true}, class: 'form-control', placeholder: 'Price', required: true %>
     </div>
   </div>
 </div>
@@ -32,7 +32,7 @@
   <%= f.label :down_payment, class: 'col-md-4 control-label' %>
   <div class="col-md-6">
     <div class="input-group">
-      <%= f.number_field :down_payment, class: 'form-control', placeholder: 'Down Payment', required: true %>
+      <%= f.text_field :down_payment, data: {autonumeric: true}, class: 'form-control', placeholder: 'Down Payment', required: true %>
     </div>
   </div>
 </div>

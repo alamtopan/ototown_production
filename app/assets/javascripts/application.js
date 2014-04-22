@@ -32,8 +32,11 @@
 //= require bootstrap-datepicker
 //= require front/calculation
 //= require front/culation
+//= require autonumeric
+//= require gmap3.min
 
 $(document).ready(function(){
+  $(document).trigger('refresh_autonumeric');
   //https://github.com/fancyapps/fancyBox
   $(".fancybox").fancybox({
       openEffect: "none",
@@ -84,6 +87,6 @@ $(document).ready(function(){
     if($('.set-3 .col-md-6').length > 3){
       $(this).hide();
     }
-  })
+  });
 
 });

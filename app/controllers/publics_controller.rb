@@ -20,7 +20,7 @@ class PublicsController < ApplicationController
 	end
 
 	def detail_news
-		@news = News.where(id: params[:id]).first
+		@news = News.where(slug: params[:id]).first
 		@news_list = News.limit(10)
 		render layout: 'application_news_detail'
 	end

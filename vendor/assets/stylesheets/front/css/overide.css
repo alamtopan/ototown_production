@@ -602,3 +602,14 @@ a.slide_url:hover{
 	border-right: solid 1px #ddd; 
 	border-left: solid 1px #ddd;
 }
+.mgs{
+	margin-top: 5px;
+}
+#map-dealer{
+	height: 250px;
+	border: solid 1px #ccc;
+}
+#map-dealer p{
+	display: none!important;
+	color: #fff!important;
+}

@@ -43,11 +43,13 @@
 //= require cocoon
 //= require front/province
 //= require bootstrap-select.min
+//= require autonumeric
 
 
 //= require back/pages/tablesDatatables
 $(function(){ TablesDatatables.init(); });
 $(document).ready(function(){
+  $(document).trigger('refresh_autonumeric');
   // datepicker
   $('.datepicker').datepicker({
     format: 'yyyy/mm/dd'

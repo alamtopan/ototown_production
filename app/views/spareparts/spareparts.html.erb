@@ -8,7 +8,7 @@
 					<div class= "car_catalog"><%= image_tag sparepart.images.first.image if sparepart.images.present? %></div>
 				<% end %>
 				<div class="catalog_desc">
-					<div class="location">Location: <b><%= sparepart.city %></b></div>
+					<div class="location"><span class="glyphicon glyphicon-map-marker"></span> <%= sparepart.city %></div>
 					<div class="title_box">
 						<h4>
 							<%= link_to detail_sparepart_path(sparepart) do %>
@@ -16,17 +16,20 @@
 							<% end %>
 						</h4>
 						<div class="price"><%= number_to_currency(sparepart.price, unit: 'Rp.') %></div>
+						<div class="mgs">
+							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(sparepart.created_at) %>
+							<span class="glyphicon glyphicon-bookmark"></span> <%= sparepart.condition %>
+						</div>
 					</div>
 					<div class="clear"></div>
 					<div class="grey_area">
 						<span>Fabrication: <b><%= sparepart.year %></b></span>
 						<span>Brand: <b><%= sparepart.brand %></b></span>
 						<span>Model: <b><%= sparepart.model %></b></span>
-						<span>Condition: <b><%= sparepart.condition %></b></span>
 					</div>
 					<div style="float:right"></div>
 					<%= link_to detail_sparepart_path(sparepart),class: "more markered" do %>
-						View details
+						<span class="glyphicon glyphicon-eye-open"></span> More
 					<% end %>
 				</div>
 			</li>

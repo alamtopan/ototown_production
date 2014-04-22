@@ -56,7 +56,7 @@
 							<div class="line">
 								<div class="left">Condition:</div>
 								<div class="right">
-									<%= @car.condition %>
+									<span class="glyphicon glyphicon-bookmark"></span> <%= @car.condition %>
 								</div>
 							</div>
 							<div class="line">
@@ -68,7 +68,7 @@
 							<div class="line">
 								<div class="left">Plate Number:</div>
 								<div class="right">
-									<%= "#{@car.plate_number}, #{@car.city}, #{@car.province}" %>
+									<span class="glyphicon glyphicon-map-marker"></span> <%= "#{@car.plate_number}, #{@car.city}, #{@car.province}" %>
 								</div>
 							</div>
 							<div class="line">
@@ -99,7 +99,8 @@
 							<div>
 								<b>Location: </b>
 								<br/>
-								<%= @car.location %>
+								<span class="glyphicon glyphicon-map-marker"></span> <%= @car.location %> , 
+								<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@car.created_at) %>
 							</div><br/>
 							<%= @car.description.html_safe %>
 							<p></p>
@@ -178,7 +179,9 @@
 									<div class="post">
 										<%= image_tag @car.user.profile.avatar.url(:medium), style: 'max-width:70px;float:left;margin-right:20px;' %>
 										<p><b><%= @car.user.profile.full_name %></b></p>
-										<p class="member-at">Join At : <br><%= @car.user.created_at.strftime('%d %b %Y') %></p>
+										<p class="member-at">Join At : <br>
+											<%= time_ago_in_words(@car.user.created_at) %>
+										</p>
 										<div class="clear"></div>
 									</div><br>
 									<div class="addr detail"><%= @car.user.profile.address %></div>

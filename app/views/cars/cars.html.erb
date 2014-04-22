@@ -8,7 +8,9 @@
 					<div class= "car_catalog"><%= image_tag car.images.first.image if car.images.present? %></div>
 				<% end %>
 				<div class="catalog_desc">
-					<div class="location">Location: <b><%= car.city %></b></div>
+					<div class="location">
+						<span class="glyphicon glyphicon-map-marker"></span> <%= car.city %>
+					</div>
 					<div class="title_box">
 						<h4>
 							<%= link_to detail_car_path(car) do %>
@@ -16,17 +18,20 @@
 							<% end %>
 						</h4>
 						<div class="price"><%= number_to_currency(car.price, unit: 'Rp.') %></div>
+						<div class="mgs">
+							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(car.created_at) %>
+							<span class="glyphicon glyphicon-bookmark"></span> <%= car.condition %>
+						</div>
 					</div>
 					<div class="clear"></div>
 					<div class="grey_area">
 						<span>Fabrication: <b><%= car.year %></b></span>
 						<span>Brand: <b><%= car.brand %></b></span>
 						<span>Model: <b><%= car.model %></b></span>
-						<span>Condition: <b><%= car.condition %></b></span>
 					</div>
 					<div style="float:right"></div>
 					<%= link_to detail_car_path(car),class: "more markered" do %>
-						View details
+						<span class="glyphicon glyphicon-eye-open"></span> More
 					<% end %>
 				</div>
 			</li>

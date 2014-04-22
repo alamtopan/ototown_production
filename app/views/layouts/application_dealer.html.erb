@@ -29,5 +29,51 @@
 	</div>
 	<%= render partial: 'shared/front/footer' %>
 	<%= javascript_include_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=en"></script>
+	<script type="text/javascript">
+		$(function(){
+		$("#map-dealer").gmap3({
+		  map:{
+		    options:{
+		      center:[-6.189707,106.825218,0.196942,0.33817],
+		      zoom: 11
+		    }
+		  },
+		  marker:{
+		    values:[
+		      {latLng:['<%= @dealer.dealer_info.longitude %>', '<%= @dealer.dealer_info.latitude %>'], 
+		      	data:'<div class="infowindow"><%= @dealer.dealer_info.title if  @dealer.dealer_info.title.present?  %><br><%= @dealer.dealer_info.address if @dealer.dealer_info.address.present? %></div>', 
+		      	options:{icon: "http://maps.gstatic.com/mapfiles/icon_green.png"}},
+		    ],
+		    options:{
+		      draggable: false
+		    },
+		    events:{
+		      mouseover: function(marker, event, context){
+		        var map = $(this).gmap3("get"),
+		          infowindow = $(this).gmap3({get:{name:"infowindow"}});
+		        if (infowindow){
+		          infowindow.open(map, marker);
+		          infowindow.setContent(context.data);
+		        } else {
+		          $(this).gmap3({
+		            infowindow:{
+		              anchor:marker, 
+		              options:{content: context.data}
+		            }
+		          });
+		        }
+		      },
+		      mouseout: function(){
+		        var infowindow = $(this).gmap3({get:{name:"infowindow"}});
+		        if (infowindow){
+		          infowindow.close();
+		        }
+		      }
+		    }
+		  }
+		});
+	});
+	</script>
 </body>
 </html>

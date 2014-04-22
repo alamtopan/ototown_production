@@ -45,6 +45,8 @@ GEM
       activerecord (>= 3.0.0)
     arel (4.0.2)
     atomic (1.1.16)
+    autonumeric-rails (1.9.21)
+      jquery-rails (>= 2.0.2)
     bcrypt (3.1.7)
     breadcrumbs_on_rails (2.3.0)
     builder (3.1.4)
@@ -277,6 +279,7 @@ DEPENDENCIES
   acts-as-taggable-on
   acts_as_list
   ancestry
+  autonumeric-rails
   breadcrumbs_on_rails
   cancan
   capistrano (~> 3.1.0)
