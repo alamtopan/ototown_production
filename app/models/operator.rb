@@ -14,6 +14,8 @@ class Operator < ActiveRecord::Base
           user.email = auth.info.email
           user.password = Devise.friendly_token[0,20]
           user.username = auth.info.nickname
+          user.confirmation_sent_at = Time.now - 5.minutes
+          user.confirmed_at = Time.now
       end
     end
 
