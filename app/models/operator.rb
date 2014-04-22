@@ -8,12 +8,13 @@ class Operator < ActiveRecord::Base
 
   class << self
     def find_for_facebook_oauth(auth)
-      where(auth.slice(:provider, :uid)).first_or_create do |user|
+      where(auth.slice(:provider, :uid)).first_or_initialize do |user|
           user.provider = auth.provider
           user.uid = auth.uid
           user.email = auth.info.email
           user.password = Devise.friendly_token[0,20]
           user.username = auth.info.nickname
+          user.skip_confirmation!
       end
     end
 
