@@ -56,16 +56,17 @@ group :development, :test do
   gem 'debugger'
   gem 'quiet_assets'
   gem 'letter_opener'
-  gem 'capistrano', '~> 3.1.0'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rbenv', "~> 2.0" 
 end
 
 group :production, :staging do
   gem 'unicorn'
   gem 'pg'
   gem 'rails_12factor'
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv', "~> 2.0" 
+  gem 'capistrano3-unicorn', "~> 0.1.1" 
 end
 
 group :doc do

@@ -4,9 +4,9 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
+role :app, %w{ototown@107.181.148.154}
+role :web, %w{ototown@107.181.148.154}
+role :db,  %w{ototown@107.181.148.154}
 
 # Extended Server Syntax
 # ======================
@@ -14,7 +14,10 @@ role :db,  %w{deploy@example.com}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+set :stage, :production
+
+# Replace 127.0.0.1 with your server's IP address!
+server '107.181.148.154', user: 'ototown', roles: %w{web app}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
@@ -37,3 +40,14 @@ server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 #     # password: 'please use keys'
 #   }
 # setting per server overrides global ssh_options
+set :rbenv_type,     :system
+set :rbenv_ruby,     '2.0.0-p451'
+set :rbenv_prefix,   "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles,    :all
+
+set :deploy_to,       "/home/ototown/www"
+set :rails_env,       "production"
+set :branch,          "master"
+
+set :unicorn_config_path, "/home/ototown/www/current/config/unicorn.rb"
