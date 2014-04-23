@@ -11,17 +11,17 @@
 				<div class="sidebar-user-name"><%= current_backend_admin.username %></div>
 				<div class="sidebar-user-links">
 					<%= link_to edit_backend_admin_path(current_backend_admin.id) do %>
-						<i class="gi gi-cogwheel"></i>
+						<i class="fa fa-user fa-fw"></i>
 					<% end %>
 					<%= link_to destroy_backend_admin_session_path, method: 'delete',data: {toogle: 'tooltip', placement: 'bottom', title: 'Logout'} do %>
-					<i class="gi gi-exit"></i>
+					<i class="fa fa-share-square fa-fw"></i>
 					<% end %>
 				</div>
 			</div>
 			<ul class="sidebar-nav">
 				<li>
 					<%= link_to backend_path do %>
-						<i class="gi gi-stopwatch sidebar-nav-icon"></i>Dashboard
+						<i class="fa fa-globe fa-fw sidebar-nav-icon"></i>Dashboard
 					<% end %>
 				</li>
 				<li class="sidebar-header">

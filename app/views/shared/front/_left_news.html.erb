@@ -20,5 +20,9 @@
 			<%= link_to "All News", news_path, class: "all_news" %>
 		</div>
 	</div>
-	<%= image_tag "reklame/left-banner.png", class: "full-100" %>
+	<% if @advertisement_home_sidebar_right.present? %>
+		<% @advertisement_home_sidebar_right.each do |advertisement_home_sidebar_right| %>
+			<%= image_tag "#{advertisement_home_sidebar_right.picture}", class: "full-100" %>
+		<% end %>
+	<% end %>
 </div>

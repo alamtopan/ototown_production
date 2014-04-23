@@ -5,6 +5,8 @@ class Backend::PageContentsController < Backend::ApplicationController
   def prepare_select
  		@category_contents = [
  														['Slider','Slider'],
+ 														['Sidebar Contact','Sidebar Contact'],
+ 														['Sidebar Contact Map','Sidebar Contact Map'],
  														['Widget Find Us','Widget Find Us'],
  														['About Us','About Us'],
  														['Need Help','Need Help']

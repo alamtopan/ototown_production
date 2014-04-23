@@ -31,12 +31,15 @@ class ApplicationController < ActionController::Base
       @about = PageContent.where("category =?", "About Us")
       @need_help = PageContent.where("category =?", "Need Help")
       @slider = PageContent.where("category =?", "Slider")
+      @sidebar_contact = PageContent.where("category =?", "Sidebar Contact").first
+      @sidebar_contact_map = PageContent.where("category =?", "Sidebar Contact Map").first
       @web = WebSetting.first
     end
 
     def advertisements
       @advertisement_home_side_left = Advertisement.published.where("position =?","Home Side Left").first
       @advertisement_home_side_right = Advertisement.published.where("position =?","Home Side Right").first
+      @advertisement_home_sidebar_right = Advertisement.published.where("position =?","Home Sidebar Right")
       @advertisement_catalog_side_left = Advertisement.published.where("position =?","Catalog Side Left").first
       @advertisement_catalog_side_right = Advertisement.published.where("position =?","Catalog Side Right").first
       @advertisement_detail_car_side_left = Advertisement.published.where("position =?","Detail Car Side Left").first
