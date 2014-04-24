@@ -26,7 +26,7 @@ class PublicsController < ApplicationController
 	end
 
 	def page
-		@page = PageContent.where(id: params[:id]).first
+		@page = PageContent.where(slug: params[:id]).first
 		render layout: 'application_page_detail'
 	end
 

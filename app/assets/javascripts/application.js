@@ -34,10 +34,15 @@
 //= require front/culation
 //= require autonumeric
 //= require gmap3.min
+//= require jquery.share
 
 $(document).ready(function(){
+  $('#share1').share({
+      networks: ['facebook','pinterest','googleplus','twitter','linkedin','tumblr','email','stumbleupon','digg']
+  });
+
   $(document).trigger('refresh_autonumeric');
-  //https://github.com/fancyapps/fancyBox
+
   $(".fancybox").fancybox({
       openEffect: "none",
       closeEffect: "none"

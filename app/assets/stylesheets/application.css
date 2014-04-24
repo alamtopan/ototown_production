@@ -22,6 +22,7 @@
 	*= require front/css/font-awesome.min
 	*= require datepicker
 	*= require autocomplite
+	*= require jquery.share
   */
 
   /*modal*/

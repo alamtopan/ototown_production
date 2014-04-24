@@ -5,7 +5,7 @@
 			<ul>
 				<% @about.each do |about| %>
 					<li>
-						<%= link_to "#{about.title}", page_path(about.id) %>
+						<%= link_to "#{about.title}", page_path(about) %>
 					</li>
 				<% end %>
 			</ul>
