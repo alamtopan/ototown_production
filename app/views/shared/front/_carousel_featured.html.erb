@@ -26,15 +26,15 @@
 	<div class="banner_1 main_banner">
 		<div class="text_wrapper">
 			<p class="title"><strong>Looking</strong> for a car?</p>
-			<p class="desc">1.000 new offers every day. 35.000 offers on site</p>
+			<p class="desc"><%= @cars_count.size %> Cars offers on site</p>
 		</div>
-		<a href="./catalog">Search</a>
+		<%= link_to "Search",cars_path(:Used) %>
 	</div>
 	<div class="banner_2 main_banner">
 		<div class="text_wrapper">
 			<p class="title"><strong>Want</strong> to sell a car?</p>
-			<p class="desc">200.000 visitors every day. Add your offer now!</p>
+			<p class="desc">Add your offer now!</p>
 		</div>
-		<a href="./add">Sell</a>
+		<%= link_to "Sell",new_product_path %>
 	</div>
 </div>

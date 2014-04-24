@@ -6,6 +6,7 @@ class PublicsController < ApplicationController
 		@cars = Car.published.limit(20).order('created_at DESC')
 		@dealers = Dealer.includes(:dealer_info).where("dealer_infos.active = TRUE").order("dealer_infos.id DESC").limit(3)
 		@spareparts = Sparepart.limit(20).order('created_at DESC')
+    @cars_count = Car.published
 		render layout: 'application_home'
 	end
 
