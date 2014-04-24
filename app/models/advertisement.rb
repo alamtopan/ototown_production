@@ -1,5 +1,5 @@
 class Advertisement < ActiveRecord::Base
-	attr_accessible :title, :publish, :unpublish, :position, :name, :phone, :address, :price, :picture, :active, :content
+	attr_accessible :title, :publish, :unpublish, :position, :name, :phone, :address, :price, :picture, :active, :content, :link_url
 
 	has_attached_file :picture, styles:  { 
                                      :medium => "600x600>", 

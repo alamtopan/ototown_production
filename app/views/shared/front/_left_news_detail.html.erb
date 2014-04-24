@@ -1,7 +1,9 @@
 <div class="news_wrapper" style="padding-top:25px;">
 	<% if @advertisement_news_side_right_without_des.present? %>
 		<% @advertisement_news_side_right_without_des.each do |advertisement_news_side_right_without_des| %>
-			<%= image_tag "#{advertisement_news_side_right_without_des.picture}", class: "full-100 margin-bottom20" %>
+			<a href="<%= advertisement_news_side_right_without_des.link_url %>" >
+				<%= image_tag "#{advertisement_news_side_right_without_des.picture}", class: "full-100 margin-bottom20" %>
+			</a>
 		<% end %>
 	<% end %>
 	<div class="news">

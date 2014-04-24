@@ -22,7 +22,9 @@
 	</div>
 	<% if @advertisement_home_sidebar_right.present? %>
 		<% @advertisement_home_sidebar_right.each do |advertisement_home_sidebar_right| %>
-			<%= image_tag "#{advertisement_home_sidebar_right.picture}", class: "full-100" %>
+			<a href="<%= advertisement_home_sidebar_right.link_url %>" >
+				<%= image_tag "#{advertisement_home_sidebar_right.picture}", class: "full-100" %>
+			</a>
 		<% end %>
 	<% end %>
 </div>
