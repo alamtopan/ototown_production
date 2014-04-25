@@ -1,5 +1,6 @@
 class Operator < ActiveRecord::Base
-  attr_accessible :email, :username, :password, :password_confirmation, :profile_attributes, :role_id
+  attr_accessible :email, :username, :password, :password_confirmation, :profile_attributes, 
+                  :role_id, :provider, :uid, :oauth_token, :oauth_expires_at
   # Include default devise modules. Others available are:
   # :confirmable, and 
   devise :database_authenticatable, :lockable, :timeoutable, 

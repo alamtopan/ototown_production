@@ -43,6 +43,7 @@ gem 'jbuilder', '~> 1.2'
 #end
 
 group :assets do
+  gem 'omniauth'
   gem 'omniauth-facebook'
   gem 'devise'
   gem 'cancan'

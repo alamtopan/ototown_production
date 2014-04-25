@@ -2,7 +2,7 @@ class User < Operator
   ROLE_ID = 2
 
   attr_accessible :email, :username, :password, :password_confirmation, :profile_attributes, :role_id,
-                  :dealer_info_attributes, :images_attributes
+                  :dealer_info_attributes, :images_attributes, :provider, :uid, :oauth_token, :oauth_expires_at
 
   devise :database_authenticatable, :lockable, :timeoutable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, # :confirmable,
@@ -24,25 +24,23 @@ class User < Operator
 
   default_scope { where(role_id: ROLE_ID) }
 
-  class << self
-    def find_for_facebook_oauth(auth)
-      where(auth.slice(:provider, :uid)).first_or_create do |user|
-          user.provider = auth.provider
-          user.uid = auth.uid
-          user.email = auth.info.email
-          user.password = Devise.friendly_token[0,20]
-          user.username = auth.info.nickname
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if user
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user
+        return registered_user
+      else
+        user = User.create(username:auth.extra.raw_info.name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            email:auth.info.email,
+                            password:Devise.friendly_token[0,20],
+                          )
       end
     end
-
-    def new_with_session(params, session)
-      super.tap do |user|
-        if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-          user.email = data["email"] if user.email.blank?
-        end
-      end
-    end
-
   end
 
   def not_dealer?

@@ -44,7 +44,7 @@ GEM
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
     arel (4.0.2)
-    autonumeric-rails (1.9.21)
+    autonumeric-rails (1.9.22)
       jquery-rails (>= 2.0.2)
     bcrypt (3.1.7)
     breadcrumbs_on_rails (2.3.0)
@@ -306,6 +306,7 @@ DEPENDENCIES
   mini_magick
   mysql2 (= 0.3.11)
   nokogiri
+  omniauth
   omniauth-facebook
   paperclip
   pg

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424074144) do
+ActiveRecord::Schema.define(version: 20140425065924) do
 
   create_table "advertisements", force: true do |t|
     t.string   "title"
@@ -229,6 +229,8 @@ ActiveRecord::Schema.define(version: 20140424074144) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   add_index "operators", ["confirmation_token"], name: "index_operators_on_confirmation_token", unique: true, using: :btree

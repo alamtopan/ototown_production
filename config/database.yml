@@ -13,3 +13,12 @@ test:
   <<: *default
   database: ototown_test
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: dfvl642u9eut4a
+  port: 5432
+  host: ec2-54-225-103-9.compute-1.amazonaws.com
+  username: xmkpriosmzhdsx
+  password: pa5LiOnHnyW2lhQniGCN2ici9n
+
