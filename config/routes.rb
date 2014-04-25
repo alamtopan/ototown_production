@@ -2,7 +2,7 @@ Ototown::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root 'publics#home'
   get  '/search', to: 'publics#search'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   #Dealers
   get   '/dealers',           to: 'dealers#dealers',           as: 'dealers'
   get   '/detail_dealer/:id', to: 'dealers#detail_dealer',     as: 'detail_dealer'
