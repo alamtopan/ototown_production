@@ -5,7 +5,7 @@ class User < Operator
                   :dealer_info_attributes, :images_attributes, :provider, :uid, :oauth_token, :oauth_expires_at
 
   devise :database_authenticatable, :lockable, :timeoutable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, #:confirmable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :products
@@ -38,6 +38,8 @@ class User < Operator
                             uid:auth.uid,
                             email:auth.info.email,
                             password:Devise.friendly_token[0,20],
+                            confirmation_token: nil,
+                            confirmed_at: Time.now.utc
                           )
       end
     end
