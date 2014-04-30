@@ -38,6 +38,8 @@ class User < Operator
                             uid:auth.uid,
                             email:auth.info.email,
                             password:Devise.friendly_token[0,20],
+                            confirmation_token: nil,
+                            confirmed_at: Time.now
                           )
       end
     end
