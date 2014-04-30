@@ -5,7 +5,7 @@ class User < Operator
                   :dealer_info_attributes, :images_attributes, :provider, :uid, :oauth_token, :oauth_expires_at
 
   devise :database_authenticatable, :lockable, :timeoutable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable, #:confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :products
