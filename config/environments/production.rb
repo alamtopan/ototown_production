@@ -83,8 +83,8 @@ Ototown::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => 'ototowncom',
-    :password             => 'ototown123',
+    :user_name            => 'dfedogawa3',
+    :password             => 'reyhan edogawa',
     :authentication       => 'plain',
     :enable_starttls_auto => true  
   }
