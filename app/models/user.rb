@@ -33,14 +33,14 @@ class User < Operator
       if registered_user
         return registered_user
       else
-        user = User.new(username:auth.extra.raw_info.name,
+        user = User.create(username:auth.extra.raw_info.name,
                             provider:auth.provider,
                             uid:auth.uid,
                             email:auth.info.email,
-                            password:Devise.friendly_token[0,20]
+                            password:Devise.friendly_token[0,20],
+                            confirmation_token: nil,
+                            confirmed_at: Time.now
                           )
-        user.skip_confirmation!
-        user.save!
       end
     end
   end
