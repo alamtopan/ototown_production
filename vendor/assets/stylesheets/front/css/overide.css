@@ -350,6 +350,7 @@ label.error{
 	-webkit-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.75);
+	position: relative;
 }
 .car_catalog:hover{
 	background-color: #eee;
@@ -615,4 +616,14 @@ a.slide_url:hover{
 }
 #share1{
 	margin-top: 10px;
+}
+.sold-out{
+	position: absolute;
+	top: 0px;
+	width: 82px!important;
+	height: 82px!important;
+	z-index: 99;
+}
+.car_image_wrapper{
+	position: relative;
 }

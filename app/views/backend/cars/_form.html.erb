@@ -143,6 +143,14 @@
     <%= f.text_field :price, data: {autonumeric: true}, class: 'form-control', placeholder: 'Price' %>
   </div>
 </div>
+<div class="form-group">
+  <%= f.label :status_car, '',class: 'col-md-3 control-label' %>
+  <% @status_sold.each_with_index do |status_sold, index| %>
+    <div class="col-md-2">
+      <%= f.radio_button :status_sold, status_sold, id: "status_sold_#{index}", required: true %>  <b><%= status_sold %></b>
+    </div>
+  <% end %>
+</div>
 </fieldset>
 <fieldset>
   <legend><i class="fa fa-angle-right"></i> Price Credits </legend>

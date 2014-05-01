@@ -33,7 +33,7 @@ class User < Operator
       if registered_user
         return registered_user
       else
-        user = User.create(username:auth.extra.raw_info.name,
+        user = User.new(username:auth.extra.raw_info.name,
                             provider:auth.provider,
                             uid:auth.uid,
                             email:auth.info.email,
@@ -41,6 +41,8 @@ class User < Operator
                             confirmation_token: nil,
                             confirmed_at: Time.now
                           )
+        user.skip_confirmation!
+        user.save!
       end
     end
   end

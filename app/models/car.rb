@@ -3,7 +3,7 @@ class Car < Product
   attr_accessible :name, :description, :category_id, :condition, :type_product, :brand, :model, :year, :color,
                   :color, :plate_number, :exp_date, :kilometer, :door, :seat, :transmission, :engine,:price,
                   :cyclinders, :fuel, :location, :city, :province, :images_attributes,:status,:negotiable,:user_id,
-                  :advertise_attributes
+                  :advertise_attributes, :status_sold
 
   has_one :advertise, foreign_key: 'product_id'
 

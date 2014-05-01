@@ -3,6 +3,9 @@
 	<div class="recent_carousel">
 		<% @cars.each do |car| %>
 			<div class="slide">
+				<% if car.status_sold.present? && car.status_sold == "Sold Out" %>
+					<%= image_tag "sold-out.png", class: "sold-out" %>
+				<% end %>
 				<%= link_to detail_car_path(car) do %>
 					<%= image_tag car.images.first.image.url(:medium) if car.images.present? %>
 					<div class="description">

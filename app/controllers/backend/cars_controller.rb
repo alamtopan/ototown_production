@@ -16,6 +16,7 @@ class Backend::CarsController < Backend::ApplicationController
         'Yellow','Purple','Maroon']
       @colors = colors.map{|c| [c,c]}
       @transmissions = ['M/T Manual','A/T Automatic'].map{|tr| [tr,tr]}
+      @status_sold = ['In Stock','Sold Out']
     end
 
     def set_car

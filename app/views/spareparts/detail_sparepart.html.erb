@@ -18,6 +18,9 @@
 						<%= @sparepart.name %>
 					</h1>
 					<div class="car_image_wrapper">
+						<% if @sparepart.status_sold.present? && @sparepart.status_sold == "Sold Out" %>
+							<%= image_tag "sold-out.png", class: "sold-out" %>
+						<% end %>
 						<%= render 'shared/front/slide_car_detail', images: @sparepart.images %>
 					</div>
 					<div class="car_characteristics">

@@ -26,6 +26,7 @@ class Backend::SparepartsController < Backend::ApplicationController
       @types = Type.all.map{|t| [t.name, t.name]}
       @brands = Brand.all.map{|t| [t.name, t.name]}
       @years = (1945..Time.new.year).to_a.map{|y| [y, y]}
+      @status_sold = ['In Stock','Sold Out']
     end
 
     def choice_condition
@@ -42,7 +43,7 @@ class Backend::SparepartsController < Backend::ApplicationController
 
     def product_params
       params.require(:sparepart).permit(:condition,:name,:category_id,:description,:province,:city,:brand,:model, :fuel, :status,
-                        :transmission,:year,:type_product,:color, :price,:negotiable, :location, :cylinders,
+                        :transmission,:year,:type_product,:color, :price,:negotiable, :location, :cylinders, :status_sold,
                         images_attributes: [:id,:image,:_destroy])
     end
 end
