@@ -37,9 +37,7 @@ class User < Operator
                             provider:auth.provider,
                             uid:auth.uid,
                             email:auth.info.email,
-                            password:Devise.friendly_token[0,20],
-                            confirmation_token: nil,
-                            confirmed_at: Time.now
+                            password:Devise.friendly_token[0,20]
                           )
         user.skip_confirmation!
         user.save!
