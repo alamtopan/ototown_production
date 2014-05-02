@@ -3,6 +3,18 @@ class Backend::UsersController < Backend::ApplicationController
   prepend_before_filter :draw_password, only: :update
   before_filter :sex
 
+  def create
+    user = User.new users_params
+    user.confirmation_token = nil
+    user.confirmed_at = Time.now
+    if user.save
+      flash[:notice] = 'User Has Been Created'
+    else
+      flash[:error] = user.errors.full_messages
+    end
+    redirect_to backend_users_path
+  end
+
   def add_dealer
     @user = User.find(params[:id])
     usr = @user.dealer_info
@@ -16,6 +28,12 @@ class Backend::UsersController < Backend::ApplicationController
   end
 
   private    
+
+    def users_params
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, profile_attributes: [:full_name, :avatar,:birthday,
+        :province, :city, :address, :codepos, :gender, :phone] )
+    end
+
     def draw_password
       %w(password password_confirmation).each do |attr|
         params[:user].delete(attr)
@@ -26,4 +44,5 @@ class Backend::UsersController < Backend::ApplicationController
       sex = ['Laki-Laki', 'Perempuan']
       @sex = sex.map{|sex| [sex, sex]}
     end
+
 end

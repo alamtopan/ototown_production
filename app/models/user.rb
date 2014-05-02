@@ -21,7 +21,6 @@ class User < Operator
 
   validates_uniqueness_of :username
 
-
   default_scope { where(role_id: ROLE_ID) }
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

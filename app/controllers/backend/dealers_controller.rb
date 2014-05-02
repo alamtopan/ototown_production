@@ -8,6 +8,16 @@ class Backend::DealersController < Backend::ApplicationController
   	@dealers = Dealer.includes(:dealer_info).where("dealer_infos.active = TRUE").order("operators.id DESC")
   end
 
+  def create
+    dealer = Dealer.new dealers_params
+    if dealer.save
+      flash[:notice] = 'Dealer Has Been Created'
+    else
+      flash[:error] = dealer.errors.full_messages
+    end
+    redirect_to backend_dealers_path
+  end
+
   def dealers_request
   	@dealers = Dealer.includes(:dealer_info).where("dealer_infos.active = FALSE").order("operators.id DESC")
   end
@@ -33,6 +43,12 @@ class Backend::DealersController < Backend::ApplicationController
   end
 
   private
+
+    def dealers_params
+      params.require(:dealer).permit(:username, :email, :password, :password_confirmation, profile_attributes: [:full_name, :avatar,:birthday,
+        :province, :city, :address, :codepos, :gender, :phone], dealer_info_attributes: [:title,:address,:phone,:description,:email,:longitude, :latitude, :category_type, :active],
+        images_attributes:[:image] )
+    end
     
     def draw_password
       %w(password password_confirmation).each do |attr|
