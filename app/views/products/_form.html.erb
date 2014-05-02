@@ -115,6 +115,10 @@
 				<label><span>* </span><strong>Body Type:</strong></label>
 		    <%= f.select :type_product, options_for_select(@types,@product.type_product), {include_blank: 'Choose One'}, class: 'text' %>
 			</div>
+			<div class="select_wrapper">
+				<label><span>* </span><strong>Status Product:</strong></label>
+		    <%= f.select :status_sold, options_for_select(@status_sold,@product.status_sold), {include_blank: 'Choose One'}, class: 'text' %>
+			</div>
 		</div>
 		<div class="clear"></div>
 		<div class="clear"></div>
