@@ -19,6 +19,17 @@ class Backend::SparepartsController < Backend::ApplicationController
     end
   end
 
+  def destroy
+     @sparepart = Sparepart.find_by(slug: params[:id])
+    if @sparepart.destroy
+      flash[:notice] = "Your Product Successfully Delete"
+      redirect_to backend_spareparts_path
+    else
+      flash[:alert] = @sparepart.errors.full_messages
+      redirect :back
+    end
+  end
+
   private
     def generate_select
       @users = User.all.map{|u| [u.email, u.id]}

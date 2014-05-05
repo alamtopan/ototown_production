@@ -32,7 +32,7 @@ class PublicsController < ApplicationController
 	end
 
 	def brand_model
-    render inline: "<%= select_tag :team_id, options_for_select(Model.where(brand_name: params[:brand]).map{|brand| [brand.name, brand.id] }), { prompt: 'Please Select',class: 'form-control', id: 'model_product' } %>"
+    render inline: "<%= select_tag :team_id, options_for_select(Model.where(brand_name: params[:brand]).map{|brand| [brand.name, brand.name] }), { prompt: 'Please Select',class: 'form-control', id: 'model_product' } %>"
 	end
 
 	def search

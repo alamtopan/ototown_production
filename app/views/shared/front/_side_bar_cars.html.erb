@@ -18,7 +18,8 @@
 				</div>
 				<div class="select_wrapper">
 					<label><span>* </span><strong>Model: </strong></label>
-			    <%= f.select :model, options_for_select([]), {include_blank: 'Choose One'}, class: 'select_5', id: 'model_product' %>
+					<% @models = Model.where(brand_name: search.present? ? search[:brand] : '').map{|m| [m.name, m.name]} %>
+			    <%= f.select :model, options_for_select(@models.present? ? @models : '', search.present? ? search[:model] : ''), {include_blank: 'Choose One'}, class: 'custom-select-mod', id: 'model_product' %>
 				</div>
 				<div class="select_wrapper">
 					<label><span>* </span><strong>Transmission</strong></label>

@@ -2168,7 +2168,7 @@ img.aligncenter {
 .custom-select select{
 	display: none;
 }
-.custom-select .custom-text{
+.custom-select .custom-text, .custom-select-mod {
 	border:1px solid #D1D5DC;
 	border-radius: 3px;
 	background: #FFFFFF;
@@ -2182,6 +2182,10 @@ img.aligncenter {
 	box-shadow: 0 1px 0 0 #FFFFFF;
 	width: auto;
 	background: url(../../../assets/select_marker.gif) no-repeat right 13px #FFFFFF;
+}
+.custom-select-mod {
+	width: 204px!important;
+	height: 31px!important;
 }
 .select-list{
 	border:1px solid #D1D5DC;

@@ -50,7 +50,7 @@
  <div class="form-group">
   <%= f.label :model, '',class: 'col-md-3 control-label' %>
   <div class="col-md-6">
-    <%= f.select :model, options_for_select([], @sparepart.model), {include_blank: 'Choose One'}, class: 'form-control', id: 'model_product' %>
+    <%= f.select :model, options_for_select(@models = Model.where(brand_name: @sparepart.brand).map{|m| [m.name, m.name]}, @sparepart.model), {include_blank: 'Choose One'}, class: 'form-control', id: 'model_product' %>
   </div>
 </div>
  <div class="form-group">

@@ -87,7 +87,7 @@
 			</div>
 			<div class="select_wrapper">
 				<label><span>* </span><strong>Model:</strong></label>
-		    <%= f.select :model, options_for_select([]), {include_blank: 'Choose One'}, class: 'text', id: 'model_product' %>
+		    <%= f.select :model, options_for_select(@models = Model.where(brand_name: @product.brand).map{|m| [m.name, m.name]}, @product.model), {include_blank: 'Choose One'}, class: 'text', id: 'model_product' %>
 			</div>
 			<div class="select_wrapper cars">
 				<label><span>* </span><strong>Transmission:</strong></label>
