@@ -1,5 +1,5 @@
 class PublicsController < ApplicationController
-	before_action :generate_select, only: [:home,:search]
+	before_action :generate_select, only: [:home,:search,:search_sparepart]
 
 	def home
 		@news_list = News.limit(1)
@@ -35,7 +35,7 @@ class PublicsController < ApplicationController
     render inline: "<%= select_tag :team_id, options_for_select(Model.where(brand_name: params[:brand]).map{|brand| [brand.name, brand.name] }), { prompt: 'Please Select',class: 'form-control', id: 'model_product' } %>"
 	end
 
-	def search
+  def search
     search_params=params[:search]
     price_tab = search_params[:price].split('-')
     if price_tab.size < 2
@@ -48,13 +48,26 @@ class PublicsController < ApplicationController
       search_params[:price_to] = price_tab[1]
       search_params[:price_from] = price_tab[0]
     end
-    @products = Product.published.filter_search(search_params).page(params[:page])
-    unless @products.present?
-      render layout: 'application_catalog'
+    @cars = Car.published.filter_search(search_params).page(params[:page])
+    render layout: 'application_catalog'
+  end
+
+  def search_sparepart
+    search_params=params[:search]
+    price_tab = search_params[:price].split('-')
+    if price_tab.size < 2
+      if search_params[:price].split('<').size > 1
+        search_params[:price_to] = search_params[:price].split('<')[1].strip
+      elsif search_params[:price].split('<').size > 1
+        search_params[:price_to] = search_params[:price].split('>')[1].strip
+      end
     else
-      render layout: 'application_catalog'
+      search_params[:price_to] = price_tab[1]
+      search_params[:price_from] = price_tab[0]
     end
-	end
+    @spareparts = Sparepart.published.filter_search(search_params).page(params[:page])
+    render layout: 'application_catalog'
+  end
 
   def compare
     unless cookies[:compare_products].nil?
