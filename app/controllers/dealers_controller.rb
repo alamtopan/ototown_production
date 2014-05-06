@@ -28,7 +28,7 @@ class DealersController < ApplicationController
       colors = ['Black','Red','White','Blue','Silver','Pink','Gray','Metalic','Silver Stone','Green',
         'Yellow','Purple','Maroon']
       @colors = colors.map{|c| [c,c]}
-      @transmissions = ['M/T Manual','A/T Automatic'].map{|tr| [tr,tr]}
+      @transmissions = ['M/T Manual','A/T Automatic','Triptonic'].map{|tr| [tr,tr]}
       catalog = ['Dealer', 'Workshop']
       @catalog = catalog.map{|cata| [cata, cata]}
       @prices = [['< 100.000.000',0],['100.000.000-200.000.000','100000000-200000000'],['200.000.000-300.000.000','200000000-300000000'],['300.000.000-400.000.000','300000000-400000000'],['400.000.000-500.000.000','400000000-500000000'],
