@@ -1,50 +1,41 @@
-<% if @products.blank? %>
-    <%= render 'shared/front/side_bar_cars' %>
-<% else %>
-  <% if @products.first.category_id == 1 %>
-    <%= render 'shared/front/paginate_result/paginate_result_cars' %>
-    <%= render 'shared/front/side_bar_cars' %>
-  <% elsif @products.first.category_id == 2 %>
-    <%= render 'shared/front/paginate_result/paginate_result_spareparts' %>
-    <%= render 'shared/front/side_bar_spareparts' %>
-  <% end %>
-<% end %>
+<%= render 'shared/front/paginate_result/paginate_result_cars' %>
+<%= render 'shared/front/side_bar_cars' %>
 <div class="main_catalog" style="padding-top:0px;">
   <ul class="catalog_table">
-    <% @products.each_with_index do |product, index| %>
+    <% @cars.each_with_index do |car, index| %>
       <li class="is_dealer">
-        <%= link_to detail_car_path(product), class: 'thumb' do %>
-          <div class= "car_catalog"><%= image_tag product.images.first.image if product.images.present? %></div>
+        <%= link_to detail_car_path(car), class: 'thumb' do %>
+          <div class= "car_catalog"><%= image_tag car.images.first.image if car.images.present? %></div>
         <% end %>
         <div class="catalog_desc">
-          <div class="location">Location: <b><%= product.city %></b></div>
+          <div class="location">Location: <b><%= car.city %></b></div>
           <div class="title_box">
             <h4>
-              <%= link_to detail_car_path(product) do %>
-                <%= product.name %>
+              <%= link_to detail_car_path(car) do %>
+                <%= car.name %>
               <% end %>
             </h4>
-            <div class="price"><%= number_to_currency(product.price, unit: 'Rp.') %></div>
+            <div class="price"><%= number_to_currency(car.price, unit: 'Rp.') %></div>
           </div>
           <div class="clear"></div>
           <div class="grey_area">
-            <span>Fabrication: <b><%= product.year %></b></span>
-            <span>Brand: <b><%= product.brand %></b></span>
-            <span>Model: <b><%= product.model %></b></span>
-            <span>Condition: <b><%= product.condition %></b></span>
+            <span>Fabrication: <b><%= car.year %></b></span>
+            <span>Brand: <b><%= car.brand %></b></span>
+            <span>Model: <b><%= car.model %></b></span>
+            <span>Condition: <b><%= car.condition %></b></span>
           </div>
           <div style="float:right"></div>
-          <%= link_to detail_car_path(product),class: "more markered" do %>
+          <%= link_to detail_car_path(car),class: "more markered" do %>
             View details
           <% end %>
         </div>
       </li>
     <% end %>
-    <%= raw '<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a>No Data Found</div>' unless @products.present? %>
+    <%= raw '<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a>No Data Found</div>' unless @cars.present? %>
   </ul>
   <div class="bottom_cat=alog_box padding-top0">
     <div class="pagination">
-      <%= paginate @products %>
+      <%= paginate @cars %>
     </div>
     <div class="clear"></div>
   </div>

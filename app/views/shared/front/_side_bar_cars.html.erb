@@ -7,9 +7,9 @@
 				<h2><strong>Search</strong> Vehicle</h2>
 				<div class="select_wrapper">
 					<span></span><strong> <%= f.radio_button :condition, "All", {checked: search.present? ? search[:condition] == 'All' : ''} %> All</strong>
-					<span></span><strong> <%= f.radio_button :condition, "Used", {checked: search.present? ? search[:condition] == 'Used' : ''} %> Used</strong>
-					<span></span><strong> <%= f.radio_button :condition, "New", {checked: search.present? ? search[:condition] == 'New' : ''} %> New</strong>
-					<span></span><strong> <%= f.radio_button :condition, "Classic", {checked: search.present? ? search[:condition] == 'Classic' : ''} %> Classic</strong>
+					<span></span><strong> <%= f.radio_button :condition, "Used", {checked: search.present? ? (search[:condition] == 'Used') : params[:condition].present? ? (params[:condition] == 'Used') : ''} %> Used</strong>
+					<span></span><strong> <%= f.radio_button :condition, "New", {checked: search.present? ? (search[:condition] == 'New') : params[:condition].present? ? (params[:condition] == 'New') : ''} %> New</strong>
+					<span></span><strong> <%= f.radio_button :condition, "Classic", {checked: search.present? ? (search[:condition] == 'Classic') : params[:condition].present? ? (params[:condition] == 'Classic') : ''} %> Classic</strong>
 				</div>
 				<div class="br"></div>
 				<div class="select_wrapper">

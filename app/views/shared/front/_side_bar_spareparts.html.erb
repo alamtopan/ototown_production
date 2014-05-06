@@ -1,7 +1,7 @@
 <div class="catalog_sidebar">
 	<div class="search_auto no-shadow">
 		<% search = params[:search] %>
-		<%= form_for :search, url: search_path, method: 'get' do |f| %>
+		<%= form_for :search, url: search_sparepart_path, method: 'get' do |f| %>
 			<%= f.hidden_field :category_id, value: 2 %>
 			<div class="sell_box sell_box_1">
 				<h2><strong>Search</strong> Sparepart</h2>
