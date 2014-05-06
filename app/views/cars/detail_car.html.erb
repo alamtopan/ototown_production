@@ -182,7 +182,7 @@
 									<h2><strong>Contact</strong></h2>
 									<div class="post">
 										<% if @car.user.dealer_info.title.present? %>
-											<%= link_to detail_dealer_path(@car.user.dealer_info) do %>
+											<%= link_to detail_dealer_path(@car.user) do %>
 												<b><span class="glyphicon glyphicon-bookmark"></span> <%= @car.user.dealer_info.title %></b>
 												<br><br>
 											<% end %>
