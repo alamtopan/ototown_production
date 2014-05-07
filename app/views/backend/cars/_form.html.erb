@@ -62,7 +62,7 @@
  <div class="form-group">
   <%= f.label :color, '',class: 'col-md-3 control-label' %>
   <div class="col-md-6">
-    <%= f.select :color, options_for_select(@colors, @car.color), {include_blank: 'Choose One'}, class: 'form-control' %>
+    <%= f.text_field :color, class: 'form-control', placeholder: 'Color' %>
   </div>
 </div>
  <div class="form-group">

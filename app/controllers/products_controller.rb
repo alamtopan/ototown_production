@@ -84,7 +84,7 @@ class ProductsController < UsersController
       colors = ['Black','Red','White','Blue','Silver','Pink','Gray','Metalic','Silver Stone','Green',
         'Yellow','Purple','Maroon']
       @colors = colors.map{|c| [c,c]}
-      @transmissions = ['M/T Manual','A/T Automatic','Triptonic'].map{|tr| [tr,tr]}
+      @transmissions = ['M/T Manual','A/T Automatic','A/T Triptonic'].map{|tr| [tr,tr]}
       @status_sold = ['In Stock','Sold Out']
     end
 
