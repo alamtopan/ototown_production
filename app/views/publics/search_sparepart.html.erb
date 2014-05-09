@@ -4,18 +4,18 @@
   <ul class="catalog_table">
     <% @spareparts.each_with_index do |sparepart, index| %>
       <li class="is_dealer">
-        <%= link_to detail_car_path(sparepart), class: 'thumb' do %>
+        <%= link_to detail_sparepart_path(sparepart), class: 'thumb' do %>
           <div class= "car_catalog"><%= image_tag sparepart.images.first.image if sparepart.images.present? %></div>
         <% end %>
         <div class="catalog_desc">
           <div class="location">Location: <b><%= sparepart.city %></b></div>
           <div class="title_box">
             <h4>
-              <%= link_to detail_car_path(sparepart) do %>
+              <%= link_to detail_sparepart_path(sparepart) do %>
                 <%= sparepart.name %>
               <% end %>
             </h4>
-            <div class="price"><%= number_to_currency(sparepart.price, unit: 'Rp.') %></div>
+            <div class="price"><%= number_to_currency(sparepart.price, unit: 'Rp.') %> <%= "/nego" if sparepart.negotiable == true %></div>
           </div>
           <div class="clear"></div>
           <div class="grey_area">
@@ -25,7 +25,7 @@
             <span>Condition: <b><%= sparepart.condition %></b></span>
           </div>
           <div style="float:right"></div>
-          <%= link_to detail_car_path(sparepart),class: "more markered" do %>
+          <%= link_to detail_sparepart_path(sparepart),class: "more markered" do %>
             View details
           <% end %>
         </div>
