@@ -21,27 +21,29 @@
 						<%= f.label :email, '', class: 'text' %>
 						<%= f.email_field :email, class: 'text' %>
 					</div>
+					<!--
 					<div class="col1">
 						<%= f.label :birthday, '', class: 'text' %>
 						<%= profile.date_select :birthday, {start_year: 1960, order: [:day, :month, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year'}}, {class: 'text selt', required: true} %>
 					</div>
-					<div class="col2">
+					-->
+					<div class="col1">
 						<%= profile.label :city, '', class: 'text' %>
 						<%= profile.text_field :city, class: 'text' %>
 					</div>
-					<div class="col1">
+					<div class="col2">
 						<%= profile.label :codepos, '', class: 'text' %>
 						<%= profile.text_field :codepos, class: 'text' %>
 					</div>
-					<div class="col2">
+					<div class="col1">
 						<%= profile.label :phone, '', class: 'text' %>
 						<%= profile.text_field :phone, class: 'text' %>
 					</div>
-					<div class="col1 last">
+					<div class="col2 last">
 						<%= profile.label :gender, '', class: 'text' %>
 						<%= profile.select :gender, options_for_select(@sex,@user.profile.gender), {include_blank: '- Select Gender -'}, class: 'text' %>
 					</div>
-					<div class="col2 last">
+					<div class="col1 last">
 						<%= profile.label :address, '', class: 'text' %>
 						<%= profile.text_area :address, class: 'text area' %>
 					</div>
