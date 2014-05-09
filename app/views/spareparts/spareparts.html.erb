@@ -22,7 +22,7 @@
 						</h4>
 						<div class="price"><%= number_to_currency(sparepart.price, unit: 'Rp.') %></div>
 						<div class="mgs">
-							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(sparepart.created_at) %>
+							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(sparepart.updated_at) %>
 							<span class="glyphicon glyphicon-bookmark"></span> <%= sparepart.condition %>
 						</div>
 					</div>

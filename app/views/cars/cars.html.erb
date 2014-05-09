@@ -24,7 +24,7 @@
 						</h4>
 						<div class="price"><%= number_to_currency(car.price, unit: 'Rp.') %></div>
 						<div class="mgs">
-							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(car.created_at) %>
+							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(car.updated_at) %>
 							<span class="glyphicon glyphicon-bookmark"></span> <%= car.condition %>
 						</div>
 					</div>
