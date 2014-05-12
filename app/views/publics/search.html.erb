@@ -15,7 +15,7 @@
                 <%= car.name %>
               <% end %>
             </h4>
-            <div class="price"><%= number_to_currency(car.price, unit: 'Rp.') %></div>
+            <div class="price"><%= number_to_currency(car.price, unit: 'Rp.') %> <%= "/nego" if car.negotiable == true %></div>
           </div>
           <div class="clear"></div>
           <div class="grey_area">

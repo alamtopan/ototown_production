@@ -27,7 +27,7 @@
 					<div class="car_characteristics">
 						<a href="#" class="print" onclick="window.print();return false;"></a>
 						<div class="price" data-currency="Rp" data-price="<%= @car.price %>" style="margin-left:10px; margin-top:15px;">
-							<%= number_to_currency(@car.price, unit: 'Rp.') %>
+							<%= number_to_currency(@car.price, unit: 'Rp.') %> <%= "/nego" if @car.negotiable == true %>
 						</div>
 						<div class="clear"></div>
 						<div class="features_table">
@@ -60,7 +60,7 @@
 							<div class="line">
 								<div class="left">Condition:</div>
 								<div class="right">
-									<span class="glyphicon glyphicon-bookmark"></span> <%= @car.condition %>
+									<%= @car.condition %>
 								</div>
 							</div>
 							<div class="line">
@@ -72,7 +72,7 @@
 							<div class="line">
 								<div class="left">Plate Number:</div>
 								<div class="right">
-									<span class="glyphicon glyphicon-map-marker"></span> <%= "#{@car.plate_number}, #{@car.city}, #{@car.province}" %>
+									<%= "#{@car.plate_number}, #{@car.city}, #{@car.province}" %>
 								</div>
 							</div>
 							<div class="line">
@@ -80,6 +80,10 @@
 								<div class="right">
 									<%= @car.exp_date %>
 								</div>
+							</div>
+							<div class="line">
+								<div class="left">Kilometer:</div>
+								<div class="right"><%= @car.kilometer %> KM</div>
 							</div>
 							<div class="line">
 								<div class="left">Doors:</div>
@@ -104,7 +108,7 @@
 								<b>Location: </b>
 								<br/>
 								<span class="glyphicon glyphicon-map-marker"></span> <%= @car.location %> , 
-								<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@car.created_at) %>
+								<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@car.updated_at) %>
 							</div><br/>
 							<%= @car.description.html_safe %>
 							<p></p>
@@ -181,6 +185,12 @@
 								<div class="widget contacts_widget credit-simulation width20">
 									<h2><strong>Contact</strong></h2>
 									<div class="post">
+										<% if @car.user.dealer_info.title.present? %>
+											<%= link_to detail_dealer_path(@car.user) do %>
+												<b><span class="glyphicon glyphicon-bookmark"></span> <%= @car.user.dealer_info.title %></b>
+												<br><br>
+											<% end %>
+										<% end %>
 										<%= image_tag @car.user.profile.avatar.url(:medium), style: 'max-width:70px;float:left;margin-right:20px;' %>
 										<p><b><%= @car.user.profile.full_name %></b></p>
 										<p class="member-at">Join At : <br>

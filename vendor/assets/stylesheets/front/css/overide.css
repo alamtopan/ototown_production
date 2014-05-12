@@ -623,6 +623,7 @@ a.slide_url:hover{
 	width: 82px!important;
 	height: 82px!important;
 	z-index: 99;
+	left: 0px;
 }
 .car_image_wrapper{
 	position: relative;

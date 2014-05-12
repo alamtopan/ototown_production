@@ -80,7 +80,7 @@
  <div class="form-group">
   <%= f.label :price, '',class: 'col-md-3 control-label' %>
   <div class="col-md-6">
-    <%= f.text_field :price, data: {autonumeric: true}, class: 'form-control', placeholder: 'Price' %>
+    <%= f.text_field :price, class: 'form-control', placeholder: 'Price' %>
   </div>
 </div>
 <div class="form-group">
@@ -90,6 +90,15 @@
       <%= f.radio_button :status_sold, status_sold, id: "status_sold_#{index}", required: true %>  <b><%= status_sold %></b>
     </div>
   <% end %>
+</div>
+<div class="form-group">
+  <%= f.label :price_negotiable, '',class: 'col-md-3 control-label' %>
+    <div class="col-md-2">
+      <%= f.radio_button :negotiable, true, {} %> YES
+    </div>
+    <div class="col-md-2">
+      <%= f.radio_button :negotiable, false, {} %> NO
+    </div>
 </div>
 </fieldset>
 <fieldset>

@@ -15,7 +15,7 @@ class Backend::CarsController < Backend::ApplicationController
       colors = ['Black','Red','White','Blue','Silver','Pink','Gray','Metalic','Silver Stone','Green',
         'Yellow','Purple','Maroon']
       @colors = colors.map{|c| [c,c]}
-      @transmissions = ['M/T Manual','A/T Automatic'].map{|tr| [tr,tr]}
+      @transmissions = ['M/T Manual','A/T Automatic','A/T Tiptronic'].map{|tr| [tr,tr]}
       @status_sold = ['In Stock','Sold Out']
     end
 
@@ -38,7 +38,7 @@ class Backend::CarsController < Backend::ApplicationController
 
     def product_params
       params.require(:car).permit(:condition,:name,:category_id,:description,:province,:city,:brand,:model, :fuel, :status,
-                        :transmission,:year,:type_product,:color, :price,:negotiable, :location, :cylinders,
+                        :transmission,:year,:type_product,:color, :price,:negotiable, :location, :cyclinders,
                         images_attributes: [:id,:image,:_destroy],
                         advertise_attributes: [:price, :loan_term, :interest_rate, :down_payment, :active, :product_id])
     end

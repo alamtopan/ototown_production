@@ -26,7 +26,7 @@
 					<div class="car_characteristics">
 						<a href="#" class="print" onclick="window.print();return false;"></a>
 						<div class="price" data-currency="Rp" data-price="<%= @sparepart.price %>" style="margin-left:10px; margin-top:15px;">
-							<%= number_to_currency(@sparepart.price, unit: 'Rp.') %>
+							<%= number_to_currency(@sparepart.price, unit: 'Rp.') %> <%= "/nego" if @sparepart.negotiable == true %>
 						</div>
 						<div class="clear"></div>
 						<div class="features_table">
@@ -73,7 +73,7 @@
 								<b>Location: </b>
 								<br/>
 								<span class="glyphicon glyphicon-map-marker"></span> <%= @sparepart.location %> , 
-								<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@sparepart.created_at) %>
+								<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@sparepart.updated_at) %>
 							</div><br/>
 							<%= @sparepart.description.html_safe %>
 							<p></p>
