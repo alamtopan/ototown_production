@@ -94,4 +94,23 @@ $(document).ready(function(){
     }
   });
 
+  $(".remove_fields.existing").click(function(){
+    $(this).closest('div.col_3').hide();
+    if($('.step_3 .col_3').length <= 3){
+      $('#add-image').show();
+    }
+
+    if($('.set-3 .col-md-6').length <= 3){
+      $('#add-image').show();
+    }
+  });
+
+  if($('.step_3 .col_3').length > 3){
+      $('#add-image').hide();
+    }
+
+  if($('.set-3 .col-md-6').length > 3){
+    $('#add-image').hide();
+  }
+
 });
