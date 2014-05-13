@@ -7,7 +7,7 @@ class Sparepart < Product
   scope :published, -> {where(status: true)}
   scope :filter_by_name, ->(name) do
             return if name.blank?
-            where('name LIKE ?', "%#{name}%")
+            where('LOWER(name) LIKE LOWER(?)', "%#{name}%")
           end
   scope :filter_by_condition, ->(condition) do
             return if condition.blank?

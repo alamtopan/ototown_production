@@ -1,7 +1,7 @@
 class Admin < Operator
   ROLE_ID = 1
   
-  attr_accessible :email, :username, :password, :password_confirmation, :profile_attributes, :role_id
+
   devise :database_authenticatable, :lockable, :timeoutable, 
          :recoverable, :rememberable, :trackable, :validatable
   

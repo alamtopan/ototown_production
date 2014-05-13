@@ -21,15 +21,15 @@ class Dealer < User
 
   scope :filter_by_category_type, ->(category_type) do
             return if category_type.blank?
-            where("dealer_infos.category_type = ?", category_type)
+            where("LOWER(dealer_infos.category_type) = LOWER(?)", category_type)
           end
   scope :filter_by_address, ->(address) do
             return if address.blank?
-            where("dealer_infos.address LIKE ?", "%#{address}%")
+            where("LOWER(dealer_infos.address) LIKE LOWER(?)", "%#{address}%")
           end
   scope :filter_by_title, ->(title) do
             return if title.blank?
-            where("title LIKE ?", "%#{title}%")
+            where("LOWER(title) LIKE LOWER(?)", "%#{title}%")
           end
 
 
