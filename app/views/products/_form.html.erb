@@ -34,19 +34,19 @@
 		<div class="col_1">
 			<div class="select_wrapper">
 				<label><span>* </span><strong>Category:</strong></label>
-		    <%= f.select :category_id, options_for_select([['Car','1'],['Spare parts','2']],@product.category_id), {include_blank: 'Select'}, class: 'text' %>
+		    <%= f.select :category_id, options_for_select([['Car','1'],['Spare parts','2']],@product.category_id), {include_blank: 'Select'}, class: 'form-control' %>
 			</div>
 		</div>
 		<div class="col_2">
 			<div class="input_wrapper">
 				<label><span>* </span><strong>Title:</strong></label>
-				<%= f.text_field :name, class: 'text full_100' %>
+				<%= f.text_field :name, class: 'form-control' %>
 			</div>
 		</div>
 		<div class="col_3">
 			<div class="select_wrapper">
 				<label><span>* </span><strong>Status:</strong></label>
-		    <%= f.select :status, options_for_select([['Publish','true'],['Save Draft','false']],@product.status), {include_blank: 'Select'}, class: 'text' %>
+		    <%= f.select :status, options_for_select([['Publish','true'],['Save Draft','false']],@product.status), {include_blank: 'Select'}, class: 'form-control' %>
 			</div>
 		</div>
 		<div class="input_wrapper" style="width:98%">
@@ -65,75 +65,75 @@
 		<div class="col_1">
 			<div class="input_wrapper">
 				<label><span>* </span><strong>Province:</strong></label>
-				<%= f.text_field :province, class: 'text full_100', id: 'province_attributes' %>
+				<%= f.text_field :province, class: 'form-control', id: 'province_attributes' %>
 			</div>
 			<div class="input_wrapper">
 				<label><span>* </span><strong>City:</strong></label>
-				<%= f.text_field :city, class: 'text full_100', id: 'city_attributes' %>
+				<%= f.text_field :city, class: 'form-control', id: 'city_attributes' %>
 			</div>
 			<div class="input_wrapper">
 				<label><span>* </span><strong>Location:</strong></label>
-	      <%= f.text_field :location, class: 'text full_100', placeholder: 'Location' %>
+	      <%= f.text_field :location, class: 'form-control', placeholder: 'Location' %>
 			</div>
 			<div class="input_wrapper cars">
 				<label><span>* </span><strong>Cylinders:</strong></label>
-	      <%= f.text_field :cyclinders, class: 'text full_100', placeholder: 'Cyclinders' %>
+	      <%= f.text_field :cyclinders, class: 'form-control', placeholder: 'Cyclinders' %>
 			</div>
 			<div class="input_wrapper cars">
 				<label><span>* </span><strong>Engine:</strong></label>
-	      <%= f.text_field :engine, class: 'text full_100', placeholder: 'Engine' %>
+	      <%= f.text_field :engine, class: 'form-control', placeholder: 'Engine' %>
 			</div>
 			<div class="input_wrapper cars">
 				<label><span>* </span><strong>Seat:</strong></label>
-	      <%= f.number_field :seat, class: 'text full_100', placeholder: 'Seat' %>
+	      <%= f.number_field :seat, class: 'form-control', placeholder: 'Seat' %>
 			</div>
 		</div>
 		<div class="col_2">
 			<div class="select_wrapper">
 				<label><span>* </span><strong>Brand:</strong></label>
-				<%= f.select :brand, options_for_select(@brands,@product.brand), {include_blank: 'Choose One'}, class: 'text', id: 'brand_product', data: {url: brand_model_path} %>
+				<%= f.select :brand, options_for_select(@brands,@product.brand), {include_blank: 'Choose One'}, class: 'form-control', id: 'brand_product', data: {url: brand_model_path} %>
 			</div>
 			<div class="select_wrapper">
 				<label><span>* </span><strong>Model:</strong></label>
-		    <%= f.select :model, options_for_select(@models = Model.where(brand_name: @product.brand).map{|m| [m.name, m.name]}, @product.model), {include_blank: 'Choose One'}, class: 'text', id: 'model_product' %>
+		    <%= f.select :model, options_for_select(@models = Model.where(brand_name: @product.brand).map{|m| [m.name, m.name]}, @product.model), {include_blank: 'Choose One'}, class: 'form-control', id: 'model_product' %>
 			</div>
 			<div class="select_wrapper cars">
 				<label><span>* </span><strong>Transmission:</strong></label>
-		    <%= f.select :transmission, options_for_select(@transmissions,@product.transmission), {include_blank: 'Choose One'}, class: 'text' %>
+		    <%= f.select :transmission, options_for_select(@transmissions,@product.transmission), {include_blank: 'Choose One'}, class: 'form-control' %>
 			</div>
 			<div class="select_wrapper">
 				<label><span>* </span><strong>Year:</strong></label>
-		    <%= f.select :year, options_for_select(@years,@product.year), {include_blank: 'Choose One'}, class: 'text' %>
+		    <%= f.select :year, options_for_select(@years,@product.year), {include_blank: 'Choose One'}, class: 'form-control' %>
 			</div>
 			<div class="input_wrapper cars">
 				<label><span>* </span><strong>Kilometer:</strong></label>
-	      <%= f.text_field :kilometer, class: 'text full_100', placeholder: 'Kilometer' %>
+	      <%= f.text_field :kilometer, class: 'form-control', placeholder: 'Kilometer' %>
 			</div>
 			<div class="select_wrapper">
 				<label><span>* </span><strong>Status Product:</strong></label>
-		    <%= f.select :status_sold, options_for_select(@status_sold,@product.status_sold), {include_blank: 'Choose One'}, class: 'text' %>
+		    <%= f.select :status_sold, options_for_select(@status_sold,@product.status_sold), {include_blank: 'Choose One'}, class: 'form-control' %>
 			</div>
 		</div>
 		<div class="col_3">
 		<div class="input_wrapper">
 				<label><span>* </span><strong>Price:</strong></label>
-	      <%= f.text_field :price, class: 'text full_100' %>
+	      <%= f.text_field :price, class: 'form-control' %>
 			</div>
 			<div class="input_wrapper cars">
 				<label><span>* </span><strong>Fuel:</strong></label>
-	      <%= f.text_field :fuel, class: 'text full_100', placeholder: 'Fuel' %>
+	      <%= f.text_field :fuel, class: 'form-control', placeholder: 'Fuel' %>
 			</div>
 			<div class="input_wrapper cars">
 				<label><span></span><strong>Color: </strong></label>
-				<%= f.text_field :color, class: 'text full_100', placeholder: 'Color' %>
+				<%= f.text_field :color, class: 'form-control', placeholder: 'Color' %>
 			</div>
 			<div class="select_wrapper">
 				<label><span>* </span><strong>Body Type:</strong></label>
-		    <%= f.select :type_product, options_for_select(@types,@product.type_product), {include_blank: 'Choose One'}, class: 'text' %>
+		    <%= f.select :type_product, options_for_select(@types,@product.type_product), {include_blank: 'Choose One'}, class: 'form-control' %>
 			</div>
 			<div class="input_wrapper cars">
 				<label><span>* </span><strong>Door:</strong></label>
-	      <%= f.number_field :door, class: 'text full_100', placeholder: 'Door' %>
+	      <%= f.number_field :door, class: 'form-control', placeholder: 'Door' %>
 			</div>
 		</div>
 		<div class="clear"></div>

@@ -11,6 +11,12 @@ only screen and (min-device-width: 10px) and (max-device-width: 400px){
 		width: 100%;
 		padding-top: 40px;
 	}
+	.sell_box .select_wrapper.hm, .sell_box .input_wrapper.hm, .sell_box .single_chb_wrapper.hm,.sell_box .select_wrapper select {
+		width: 100%;
+	}
+	.custom-select-mod{
+		width: 97%;
+	}
 	#header .top_info .accs {
 		width: 100%;
 	}

@@ -29,7 +29,6 @@
 	
 }
 .sell_box .select_wrapper.hm, .sell_box .input_wrapper.hm, .sell_box .single_chb_wrapper.hm {
-	width: 225px!important;
 	float: left;
 	padding-bottom: 7px;
 }

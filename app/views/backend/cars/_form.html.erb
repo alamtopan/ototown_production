@@ -17,7 +17,7 @@
    <%= f.label :condition, '',class: 'col-md-3 control-label' %>
     <% @condition.each_with_index do |condition, index|%>
       <div class="col-md-2">
-        <%= f.radio_button :condition, condition ,id:"condition_#{index}",required: true%>  <b><%= condition %></b>
+        <%= f.radio_button :condition, condition ,id:"condition_#{index}", required: true%>  <b><%= condition %></b>
       </div>
     <% end %>
   </div>

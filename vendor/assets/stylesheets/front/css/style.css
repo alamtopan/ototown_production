@@ -2184,8 +2184,11 @@ img.aligncenter {
 	background: url(../../../assets/select_marker.gif) no-repeat right 13px #FFFFFF;
 }
 .custom-select-mod {
-	width: 204px!important;
+	width: 97%;
 	height: 31px!important;
+}
+.custom-select-mod2 {
+	width: 91%;
 }
 .select-list{
 	border:1px solid #D1D5DC;
@@ -4220,7 +4223,6 @@ textarea.text{
 .sell_box .select_wrapper,
 .sell_box .input_wrapper,
 .sell_box .single_chb_wrapper{
-	width: 290px;
 	padding-bottom: 7px;
 }
 .sell_box .col_1,.sell_box .col_2,.sell_box .col_3{
@@ -4268,9 +4270,6 @@ textarea.text{
 .sell_box .single_chb_wrapper.last{
 	margin-right: 0;
 }*/
-.sell_box .select_wrapper select{
-	width:287px;
-}
 .sell_box .select_wrapper.with_text select{
 	width:255px;
 	display: inline-block;

@@ -8,6 +8,12 @@ only screen and (min-device-width: 400px) and (max-device-width: 500px){
 	cite{
 		display: block;
 	}
+	.sell_box .select_wrapper.hm, .sell_box .input_wrapper.hm, .sell_box .single_chb_wrapper.hm,.sell_box .select_wrapper select {
+		width: 100%;
+	}
+	.custom-select-mod{
+		width: 97%;
+	}
 	#header{
 		min-width:400px;
 		width: 100%;
