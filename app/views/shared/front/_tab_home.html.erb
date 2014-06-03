@@ -10,7 +10,7 @@
  		<% @spareparts.each_with_index do |sparepart, index| %>
    		<div class="slide">
    			<%= link_to detail_sparepart_path(sparepart),class: "img" do %>
-					<%= image_tag sparepart.images.first.image, class: "small_image"  if sparepart.images.present? %>
+					<%= image_tag sparepart.images.first.image.url(:thumb), class: "small_image"  if sparepart.images.present? %>
 				<% end %>
 				<%= link_to detail_sparepart_path(sparepart),class: "title" do %>
 					<%= sparepart.name %>

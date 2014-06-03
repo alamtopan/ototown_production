@@ -3,7 +3,7 @@
 	<% @dealers.each_with_index do |dealer, index| %>
 		<div class="post_block dealers <%= 'last' if index == @dealers.size-1 %>">
 			<%= link_to detail_dealer_path(dealer),class: "thumb deal" do %>
-				<%= image_tag dealer.images.first.image  if dealer.images.present? %>
+				<%= image_tag dealer.images.first.image.url(:normal)  if dealer.images.present? %>
 			<% end %>
 			<h5>
 				<%= link_to detail_dealer_path(dealer) do %>

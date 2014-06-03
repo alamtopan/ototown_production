@@ -6,7 +6,7 @@
 				<div class="news_box">
 					<h5><%= link_to "#{news_list.title}", detail_news_path(news_list) %></h5>
 					<%= link_to detail_news_path(news_list) do %>
-						<%= image_tag "#{news_list.pic}", class: "full-100" %>
+						<%= image_tag "#{news_list.pic.url(:medium)}", class: "full-100" %>
 					<% end %>
 					<div class="date"><span><%= news_list.created_at.strftime('%d %b %Y - at %I:%M%p') %></span></div>
 					<div class="post">
