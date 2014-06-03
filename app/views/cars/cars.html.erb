@@ -6,7 +6,7 @@
 			<li class="is_dealer">
 				<%= link_to detail_car_path(car), class: 'thumb' do %>
 					<div class= "car_catalog">
-						<%= image_tag car.images.first.image if car.images.present? %>
+						<%= image_tag car.images.first.image.url(:normal) if car.images.present? %>
 						<% if car.status_sold.present? && car.status_sold == "Sold Out" %>
 							<%= image_tag "sold-out.png", class: "sold-out" %>
 						<% end %>
