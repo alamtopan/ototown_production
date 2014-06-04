@@ -10,7 +10,7 @@
 						<span class="custom_chb_wrapper">
 							<span class="custom_chb">
 								<%= f.radio_button :condition, "All", {id: "all", checked: params[:search].present? ? params[:search][:condition] == 'All' : ''} %>
-								<label for="all"></label><span class="fr">ALL</span> 
+								<label for="all"></label><span class="fr">ALL</span>
 							</span>
 						</span>
 					</div>
@@ -56,19 +56,19 @@
 					</div>
 					<div class="select_wrapper hm">
 						<label><span>* </span><strong>Minimum Year:</strong></label>
-				    <%= f.select :year, options_for_select(@years), {include_blank: 'Choose Min Year'}, class: 'custom-select-mod' %>
+				    <%= f.select :year_from, options_for_select(@years_min), {include_blank: 'Choose Min Year'}, class: 'custom-select-mod' %>
 					</div>
 					<div class="select_wrapper hm">
 						<label><span>* </span><strong>Maximal Year:</strong></label>
-				    <%= f.select :year, options_for_select(@years), {include_blank: 'Choose Max Year'}, class: 'custom-select-mod' %>
+				    <%= f.select :year_to, options_for_select(@years_max), {include_blank: 'Choose Max Year'}, class: 'custom-select-mod' %>
 					</div>
 					<div class="select_wrapper hm">
 						<label><span>* </span><strong>Minimum Price:</strong></label>
-				    <%= f.select :price, options_for_select(@prices), {include_blank: 'Select Min Price'}, class: 'custom-select-mod' %>
+				    <%= f.select :price_from, options_for_select(@prices_min), {include_blank: 'Select Min Price'}, class: 'custom-select-mod' %>
 					</div>
 					<div class="select_wrapper hm">
 						<label><span>* </span><strong>Maximal Price:</strong></label>
-				    <%= f.select :price, options_for_select(@prices), {include_blank: 'Select Max Price'}, class: 'custom-select-mod' %>
+				    <%= f.select :price_to, options_for_select(@prices_max), {include_blank: 'Select Max Price'}, class: 'custom-select-mod' %>
 					</div>
 					<div class="select_wrapper hm">
 						<label><span>* </span><strong>Province </strong></label>

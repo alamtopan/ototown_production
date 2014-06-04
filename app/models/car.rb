@@ -34,9 +34,10 @@ class Car < Product
             return if transmission.blank?
             where(transmission: transmission)
           end
-  scope :filter_by_year, ->(year) do
-            return if year.blank?
-            where(year: year)
+  scope :filter_by_year, ->(year1, year2) do
+            return if year1.blank? && year2.blank?
+            return where('year <= ? OR year >= ?', year2, year1) if year1.blank? || year2.blank?
+            where('year <= ? AND year >= ?', year2, year1) if year1.present? && year2.present?
           end
   scope :filter_by_type_product, ->(type_product) do
             return if type_product.blank?
@@ -50,10 +51,10 @@ class Car < Product
             return if city.blank?
             where(city: city)
           end
-  scope :filter_by_price, ->(price1,price2) do
+  scope :filter_by_price, ->(price1, price2) do
             return if price1.blank? && price2.blank?
-            return where('price <= ? OR price >= ?', price2,price1) if price1.blank? || price2.blank?
-            where('price <= ? AND price >= ?', price2,price1) if price1.present? && price2.present?
+            return where('price <= ? OR price >= ?', price2, price1) if price1.blank? || price2.blank?
+            where('price <= ? AND price >= ?', price2, price1) if price1.present? && price2.present?
           end
 
   scope :filter_search, ->(params)  do
@@ -64,11 +65,11 @@ class Car < Product
         .filter_by_brand(params[:brand])
         .filter_by_model(params[:model])
         .filter_by_transmission(params[:transmission])
-        .filter_by_year(params[:year])
+        .filter_by_year(params[:year_from].blank? ? nil : params[:year_from].to_i, params[:year_to].blank? ? nil : params[:year_to].to_i)
         .filter_by_type_product(params[:type_product])
         .filter_by_province(params[:province])
         .filter_by_city(params[:city])
-        .filter_by_price(params[:price_from], params[:price_to])
+        .filter_by_price(params[:price_from].blank? ? nil : params[:price_from].to_i, params[:price_to].blank? ? nil : params[:price_to].to_i)
   end
 
 	protected
