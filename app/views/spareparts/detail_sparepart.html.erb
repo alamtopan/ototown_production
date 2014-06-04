@@ -11,8 +11,12 @@
 			<div class="main_wrapper">
 				<div class="main_wrapper ">
 					<div class="cars_id">
-						<div class="id">Brand <span><%= @sparepart.brand %></span></div>
-						<div class="views">Model <%= "#{@sparepart.model} #{@sparepart.year}" %></div>
+						<% if @sparepart.brand %>
+							<div class="id">Brand <span><%= @sparepart.brand %></span></div>
+						<% end %>
+						<% if @sparepart.model %>
+							<div class="views">Model <%= "#{@sparepart.model} #{@sparepart.year}" %></div>
+						<% end %>
 					</div>
 					<h1>
 						<%= @sparepart.name %>
@@ -30,38 +34,42 @@
 						</div>
 						<div class="clear"></div>
 						<div class="features_table">
-							<div class="line">
-								<div class="left">Model, Body type:</div>
-								<div class="right"><%= "#{@sparepart.model}, #{@sparepart.type_product}" %></div>
-							</div>
-							<div class="line">
-								<div class="left">Fabrication:</div>
-								<div class="right"><%= @sparepart.year %></div>
-							</div>
-							<div class="line">
-								<div class="left">Condition:</div>
-								<div class="right">
-									<%= @sparepart.condition %>
+							<% if @sparepart.model && @sparepart.type_product %>
+								<div class="line">
+									<div class="left">Model, Body type:</div>
+									<div class="right"><%= "#{@sparepart.model}, #{@sparepart.type_product}" %></div>
 								</div>
-							</div>
-							<div class="line">
-								<div class="left">Year:</div>
-								<div class="right">
-									<%= @sparepart.year %>
+							<% end %>
+							<% if @sparepart.year %>
+								<div class="line">
+									<div class="left">Fabrication:</div>
+									<div class="right"><%= @sparepart.year %></div>
 								</div>
-							</div>
-							<div class="line">
-								<div class="left">Location:</div>
-								<div class="right">
-									<%= "#{@sparepart.city}, #{@sparepart.province}" %>
+							<% end %>
+							<% if @sparepart.condition %>
+								<div class="line">
+									<div class="left">Condition:</div>
+									<div class="right">
+										<%= @sparepart.condition %>
+									</div>
 								</div>
-							</div>
-							<div class="line">
-								<div class="left">Expire Date:</div>
-								<div class="right">
-									<%= @sparepart.exp_date %>
+							<% end %>
+							<% if @sparepart.year %>
+								<div class="line">
+									<div class="left">Year:</div>
+									<div class="right">
+										<%= @sparepart.year %>
+									</div>
 								</div>
-							</div>
+							<% end %>
+							<% if @sparepart.city && @sparepart.province %>
+								<div class="line">
+									<div class="left">Location:</div>
+									<div class="right">
+										<%= "#{@sparepart.city}, #{@sparepart.province}" %>
+									</div>
+								</div>
+							<% end %>
 						</div>
 					</div>
 					<%= render "shared/front/share_media" %>
@@ -69,12 +77,14 @@
 					<div class="info_box">
 						<div class="sparepart_contacts">
 							<h2><strong>Detail</strong> Information</h2>
-							<div>
-								<b>Location: </b>
-								<br/>
-								<span class="glyphicon glyphicon-map-marker"></span> <%= @sparepart.location %> , 
-								<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@sparepart.updated_at) %>
-							</div><br/>
+							<% if @sparepart.location %>
+								<div>
+									<b>Location: </b>
+									<br/>
+									<span class="glyphicon glyphicon-map-marker"></span> <%= @sparepart.location %> ,
+									<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@sparepart.updated_at) %>
+								</div><br/>
+							<% end %>
 							<%= @sparepart.description.html_safe %>
 							<p></p>
 							<div class="clear"></div>
@@ -108,12 +118,18 @@
 										</p>
 										<div class="clear"></div>
 									</div><br>
-									<div class="addr detail"><%= @sparepart.user.profile.address %></div>
-									<div class="phones detail"><%= @sparepart.user.profile.phone %></div>
-									<div class="email detail single_line">
-										<a href="mailto:<%= @sparepart.user.email %>" rel="moc/eciujretniw//elpmaxe" class="email_link_replace markered"><%= @sparepart.user.email %>
-										</a>
-									</div>
+									<% if @sparepart.user.profile.address %>
+										<div class="addr detail"><%= @sparepart.user.profile.address %></div>
+									<% end %>
+									<% if @sparepart.user.profile.phone %>
+										<div class="phones detail"><%= @sparepart.user.profile.phone %></div>
+									<% end %>
+									<% if @sparepart.user.email %>
+										<div class="email detail single_line">
+											<a href="mailto:<%= @sparepart.user.email %>" rel="moc/eciujretniw//elpmaxe" class="email_link_replace markered"><%= @sparepart.user.email %>
+											</a>
+										</div>
+									<% end %>
 									<div class="clear"></div>
 								</div>
 							</div>
