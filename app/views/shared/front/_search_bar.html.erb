@@ -55,12 +55,20 @@
 				    <%= f.select :transmission, options_for_select(@transmissions), {include_blank: 'Choose One'}, class: 'custom-select-mod' %>
 					</div>
 					<div class="select_wrapper hm">
-						<label><span>* </span><strong>Year:</strong></label>
-				    <%= f.select :year, options_for_select(@years), {include_blank: 'Choose One'}, class: 'custom-select-mod' %>
+						<label><span>* </span><strong>Minimum Year:</strong></label>
+				    <%= f.select :year, options_for_select(@years), {include_blank: 'Choose Min Year'}, class: 'custom-select-mod' %>
 					</div>
 					<div class="select_wrapper hm">
-						<label><span>* </span><strong>Price:</strong></label>
-				    <%= f.select :price, options_for_select(@prices), {include_blank: 'Select Price'}, class: 'custom-select-mod' %>
+						<label><span>* </span><strong>Maximal Year:</strong></label>
+				    <%= f.select :year, options_for_select(@years), {include_blank: 'Choose Max Year'}, class: 'custom-select-mod' %>
+					</div>
+					<div class="select_wrapper hm">
+						<label><span>* </span><strong>Minimum Price:</strong></label>
+				    <%= f.select :price, options_for_select(@prices), {include_blank: 'Select Min Price'}, class: 'custom-select-mod' %>
+					</div>
+					<div class="select_wrapper hm">
+						<label><span>* </span><strong>Maximal Price:</strong></label>
+				    <%= f.select :price, options_for_select(@prices), {include_blank: 'Select Max Price'}, class: 'custom-select-mod' %>
 					</div>
 					<div class="select_wrapper hm">
 						<label><span>* </span><strong>Province </strong></label>
