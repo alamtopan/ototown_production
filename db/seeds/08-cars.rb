@@ -1,7 +1,7 @@
 module SeedCar
   
   def self.seed
-    url = 'http://ototown.com/used-car/bmw-325i-10'
+    url = 'http://ototown.com/detail_car/crv-2-4-55b03325-8988-439f-8ae4-97d45841f7ba'
     resp = RestClient.get URI.escape(url)
     @doc  = Nokogiri::HTML(resp.body)
     (1..30).to_a.each do |i|

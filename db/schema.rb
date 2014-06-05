@@ -194,6 +194,7 @@ ActiveRecord::Schema.define(version: 20140509065502) do
     t.string   "source"
     t.integer  "category_id"
     t.boolean  "active"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "pic_file_name"
@@ -202,7 +203,6 @@ ActiveRecord::Schema.define(version: 20140509065502) do
     t.datetime "pic_updated_at"
     t.date     "publish"
     t.date     "unpublish"
-    t.string   "slug"
   end
 
   create_table "operators", force: true do |t|
@@ -304,7 +304,7 @@ ActiveRecord::Schema.define(version: 20140509065502) do
   end
 
   create_table "sessions", force: true do |t|
-    t.string   "session_id"
+    t.string   "session_id", null: false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

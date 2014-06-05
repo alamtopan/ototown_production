@@ -2250,7 +2250,7 @@ body #content .widget ul.twitter_feed li a,
 	float: left;
 }
 .banner_2{
-	background: url(../images/banners/bg_banner_2.jpg) repeat-x 0 0 #F09000;
+	background: #F09000;
 	border:1px solid #DA8500;
 	float: right;
 	width: 425px;
@@ -3127,7 +3127,7 @@ select.text,
 	padding: 4px 11px;
 	box-shadow: 0 1px 0 0 #FFFFFF;
 	width: auto;
-	background: url(../images/select_marker.gif) no-repeat right 13px #FFFFFF;
+	background: #FFFFFF;
 	text-indent: 0.01px;
     text-overflow: '';
 }

@@ -7,7 +7,7 @@ class CreateNews < ActiveRecord::Migration
       t.string :source
       t.integer :category_id
       t.boolean :active
-
+      t.string   :slug
       t.timestamps
     end
   end

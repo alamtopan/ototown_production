@@ -16,11 +16,11 @@
 //= require front/js/bootstrap
 //= require front/js/jquery.easing.1.3
 //= require front/js/jquery.bxslider
-//= require front/js/jquery.mousewheel
-//= require front/js/jquery.selectik
-//= require front/js/jquery.mousewheel-3.0.4.pack
-//= require front/js/jquery.countdown
-//= require front/js/jquery.checkbox
+// require front/js/jquery.mousewheel
+// require front/js/jquery.selectik
+// require front/js/jquery.mousewheel-3.0.4.pack
+// require front/js/jquery.countdown
+// require front/js/jquery.checkbox
 //= require jquery-auto
 //= require front/js/js
 //= require front/js/vehicles

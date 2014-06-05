@@ -30,47 +30,47 @@ jQuery(document).ready(function(){
     	slideMargin: 0,
     	controls : false
   	});
-	jQuery('.select_1').selectik({
-		width: 'auto',
-		maxItems: 5,
-		customScroll: 1,
-		speedAnimation: 100,
-		smartPosition: false
-	});
-	jQuery('.select_2').selectik({
-		width: 'auto',
-		maxItems: 5,
-		customScroll: 1,
-		speedAnimation: 100,
-		smartPosition: false
-	});
-	jQuery('.select_3').selectik({
-		width: 'auto',
-		maxItems: 5,
-		customScroll: 1,
-		speedAnimation: 100,
-		smartPosition: false
-	});
-	jQuery('.select_4').selectik({
-		width: 'auto',
-		maxItems: 5,
-		customScroll: 1,
-		speedAnimation: 100,
-		smartPosition: false
-	});
-	jQuery('.select_5').selectik({
-		containerClass: 'custom-select sell_select',
-		width: 205,
-		maxItems: 5,
-		customScroll: 1,
-		speedAnimation: 100,
-		smartPosition: false
-	});
-	/*$('.recent_carousel').elastislide({
-		imageW 		: 220,
-		border		: 0,
-		margin		: 20
-	});*/
+	// jQuery('.select_1').selectik({
+	// 	width: 'auto',
+	// 	maxItems: 5,
+	// 	customScroll: 1,
+	// 	speedAnimation: 100,
+	// 	smartPosition: false
+	// });
+	// jQuery('.select_2').selectik({
+	// 	width: 'auto',
+	// 	maxItems: 5,
+	// 	customScroll: 1,
+	// 	speedAnimation: 100,
+	// 	smartPosition: false
+	// });
+	// jQuery('.select_3').selectik({
+	// 	width: 'auto',
+	// 	maxItems: 5,
+	// 	customScroll: 1,
+	// 	speedAnimation: 100,
+	// 	smartPosition: false
+	// });
+	// jQuery('.select_4').selectik({
+	// 	width: 'auto',
+	// 	maxItems: 5,
+	// 	customScroll: 1,
+	// 	speedAnimation: 100,
+	// 	smartPosition: false
+	// });
+	// jQuery('.select_5').selectik({
+	// 	containerClass: 'custom-select sell_select',
+	// 	width: 205,
+	// 	maxItems: 5,
+	// 	customScroll: 1,
+	// 	speedAnimation: 100,
+	// 	smartPosition: false
+	// });
+	// /*$('.recent_carousel').elastislide({
+	// 	imageW 		: 220,
+	// 	border		: 0,
+	// 	margin		: 20
+	// });*/
 	$('.recent_carousel').bxSlider({
    	 	slideWidth: 220,
     	minSlides: 1,
