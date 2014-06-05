@@ -53,6 +53,8 @@ class Car < Product
           end
   scope :filter_by_price, ->(price1, price2) do
             return if price1.blank? && price2.blank?
+            return where('price >= ?', 1000000000) if price1.blank? && price2.present? && price2 == 10
+            return where('price >= ? OR price >= ?', 1000000000, price1) if price1.present? && price2.present? && price2 == 10
             return where('price <= ? OR price >= ?', price2, price1) if price1.blank? || price2.blank?
             where('price <= ? AND price >= ?', price2, price1) if price1.present? && price2.present?
           end
