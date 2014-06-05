@@ -320,6 +320,7 @@ label.error{
 	-webkit-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.75);
+	width: 94%;
 }
 .member-at{
 	font-size: 12px;
@@ -626,4 +627,12 @@ a.slide_url:hover{
 }
 .car_image_wrapper{
 	position: relative;
+}
+.width50{
+	width: 48%;
+	float: left;
+	margin-right: 2%;
+}
+.marg-bottom10{
+	margin-bottom: 10px;
 }

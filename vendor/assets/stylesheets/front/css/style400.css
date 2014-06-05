@@ -11,6 +11,30 @@ only screen and (min-device-width: 10px) and (max-device-width: 400px){
 		width: 100%;
 		padding-top: 40px;
 	}
+	h1{
+		font-size: 20px;
+	}
+	.nav-news a {
+		font-size: 12px;
+	}
+	.nav-news div a {
+		padding: 10px 30px;
+	}
+	.car_catalog{
+		width: 100%;
+		height: auto;
+	}
+	.is_dealer{
+		margin: 0px;
+	}
+	.width50{
+		width: 100%;
+		float: left;
+		margin-right: 0%;
+	}
+	.credit-simulation{
+		padding: 10px;
+	}
 	.oto-log{
 		width: 300px;
 	}
@@ -160,7 +184,7 @@ only screen and (min-device-width: 10px) and (max-device-width: 400px){
 	.content{
 		width: auto;
 		margin: 0 auto;
-		padding: 15px 10px 0;
+		padding: 10px;
 	}
 	.slider_wrapper{
 		float: none;
@@ -927,9 +951,8 @@ only screen and (min-device-width: 10px) and (max-device-width: 400px){
 	}
 	.car_image_wrapper{
 		width: auto;
-		margin-right: 10px;
-		margin-left: 10px;
 		float: none;
+		margin-right: 0px;
 	}
 	.car_characteristics{
 		width: auto;

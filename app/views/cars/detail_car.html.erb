@@ -155,22 +155,22 @@
 										<div id="calc-container">
 											<div id="calculator-tab">
 												<div class="sell_box step_2" style="">
-													<div class="col_2">
-														<div class="select_wrapper">
+													<div class="width50">
+														<div class="marg-bottom10">
 															<label><span>* </span><strong>Price:</strong></label>
 															<input name="calc-price" type="text" class="text full100" id="calc-price" value="<%= number_to_currency(@car.advertise.price, unit: '') %>">
 														</div>
-														<div class="select_wrapper">
+														<div class="marg-bottom10">
 															<label><span>* </span><strong>Loan Term:</strong></label>
 															<input name="calc-tenor" type="number" class="text full100" id="calc-tenor1" value="<%= @car.advertise.loan_term %>"> <b class="font10">/Month</b>
 														</div>
 													</div>
-													<div class="col_3">
-														<div class="select_wrapper">
+													<div class="width50">
+														<div class="marg-bottom10">
 															<label><span>* </span><strong>Interest Rate:</strong></label>
 															<input name="calc-tenor2" type="number" class="text full100" id="calc-tenor2" value="<%= @car.advertise.interest_rate %>"> <b class="font10">%</b>
 														</div>
-														<div class="select_wrapper">
+														<div class="marg-bottom10">
 															<label><span>* </span><strong>Down Payment:</strong></label>
 															<input name="calc-uangmuka" type="text" class="text full100" id="calc-uangmuka" value="<%= number_to_currency(@car.advertise.down_payment, unit: '') %>">
 														</div>

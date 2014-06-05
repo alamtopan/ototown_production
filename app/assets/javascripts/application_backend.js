@@ -44,10 +44,18 @@
 //= require front/province
 //= require bootstrap-select.min
 //= require autonumeric
-
-
 //= require back/pages/tablesDatatables
+//= require jquery.lazyload
+
 $(function(){ TablesDatatables.init(); });
+
+
+$(function() {
+    $("img").show().lazyload({
+      effect : "fadeIn"
+    });
+});
+
 $(document).ready(function(){
   $(document).trigger('refresh_autonumeric');
   // datepicker

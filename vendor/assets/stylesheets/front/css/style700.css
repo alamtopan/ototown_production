@@ -41,9 +41,6 @@ only screen and (min-device-width: 600px) and (max-device-width: 700px){
 		right: 20px;
 		padding: 10px 0 0 0;
 	}
-	.width20, .width-20{
-		width: 90%;
-	}
 	/*
 	================================================================================
 	|                                     NAVIGATION                               |
@@ -626,6 +623,7 @@ only screen and (min-device-width: 600px) and (max-device-width: 700px){
 		width: 100%;
 		margin-right: 0;
 		float: none;
+		margin-right: 0px;
 	}
 	.car_characteristics{
 		width: 100%;
