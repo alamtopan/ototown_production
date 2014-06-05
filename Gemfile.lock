@@ -139,6 +139,8 @@ GEM
     kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
+    lazyload-rails (0.2.0)
+      nokogiri (~> 1.5)
     letter_opener (1.2.0)
       launchy (~> 2.2)
     mail (2.5.4)
@@ -297,6 +299,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
+  lazyload-rails
   letter_opener
   mini_magick
   mysql2 (= 0.3.11)

@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 1.2'
   gem 'protected_attributes'
 # end
   gem 'breadcrumbs_on_rails'
+  gem "lazyload-rails"
 
 # group :addons do
   gem 'cocoon'                          # Dynamic nested forms using jQuery

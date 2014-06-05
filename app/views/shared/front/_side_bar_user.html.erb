@@ -16,7 +16,7 @@
 	<div class="widget contacts_widget credit-simulation width_user_info">
 		<h2><strong>Contact</strong></h2>
 		<div class="post">
-			<%= image_tag @user.profile.avatar.url(:medium), style: 'max-width:70px;float:left;margin-right:20px;' %>
+			<%= x_image_tag @user.profile.avatar.url(:medium), style: 'max-width:70px;float:left;margin-right:20px;' %>
 			<p><b><%= @user.profile.full_name %></b></p>
 			<p class="member-at">Join At : <br><%= @user.created_at.strftime('%d %b %Y') %></p>
 			<div class="clear"></div>

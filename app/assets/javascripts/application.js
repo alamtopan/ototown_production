@@ -35,8 +35,16 @@
 //= require autonumeric
 //= require gmap3.min
 //= require jquery.share
+//= require jquery.lazyload
+
+$(function() {
+    $("img").show().lazyload({
+      effect : "fadeIn"
+    });
+});
 
 $(document).ready(function(){
+
   $('#share1').share({
       networks: ['facebook','pinterest','googleplus','twitter','linkedin','tumblr','email','stumbleupon','digg']
   });
