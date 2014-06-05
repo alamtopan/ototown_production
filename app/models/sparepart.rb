@@ -57,7 +57,7 @@ class Sparepart < Product
         .filter_by_type_product(params[:type_product])
         .filter_by_province(params[:province])
         .filter_by_city(params[:city])
-        .filter_by_price(params[:price_from].blank? ? nil : params[:price_from].to_i, params[:price_to].blank? ? nil : params[:price_to].to_i)
+        .filter_by_price((params[:price_from].blank? ? nil : params[:price_from].to_i), (params[:price_to].blank? ? nil : params[:price_to].to_i))
   end
 
 end
