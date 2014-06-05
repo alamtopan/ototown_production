@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :footer_content
   before_filter :advertisements
-
+  before_filter :log_additional_data
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password) }
@@ -52,6 +52,13 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << :username
+    end
+
+    def log_additional_data
+      request.env["exception_notifier.exception_data"] = {
+        :document => @document,
+        :person => @person
+      }
     end
 
 end

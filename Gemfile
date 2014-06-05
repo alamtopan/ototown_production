@@ -41,6 +41,7 @@ gem 'jbuilder', '~> 1.2'
   gem 'wash_out'
   gem 'htmlentities'
   gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+  gem "exception_notification", :require => "exception_notifier"
 #end
 
 group :assets do

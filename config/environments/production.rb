@@ -1,6 +1,17 @@
 Ototown::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[Whatever] ",
+    :sender_address => %{"notifier" <notifier@example.com>},
+    :exception_recipients => %w{alam.topani@domikado.com},
+    :delivery_method => :smtp,
+    :smtp_settings => {
+      :user_name => "alamtopani",
+      :password => "0266239880",
+    }
 
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
