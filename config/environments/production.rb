@@ -85,7 +85,13 @@ Ototown::Application.configure do
     :user_name            => 'ototowncom',
     :password             => 'ototown123',
     :authentication       => 'plain',
-    :enable_starttls_auto => true  
+    :enable_starttls_auto => true
+  }
+
+  config.middleware.use ExceptionNotification::Rack, email: {
+    email_prefix: "[Ototown][Pro] ",
+    sender_address: %{"Ototown Notifier - PRO" <no-reply@ototown.com>},
+    exception_recipients: %w{dfedogawa3@gmail.com alamtopani881@gmail.com}
   }
 
 end
