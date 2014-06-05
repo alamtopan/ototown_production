@@ -11,8 +11,12 @@
 			<div class="main_wrapper">
 				<div class="main_wrapper ">
 					<div class="cars_id">
-						<div class="id">Brand <span><%= @car.brand %></span></div>
-						<div class="views">Model <%= "#{@car.model} #{@car.year}" %></div>
+						<% if @car.brand %>
+							<div class="id">Brand <span><%= @car.brand %></span></div>
+						<% end %>
+						<% if @car.model %>
+							<div class="views">Model <%= "#{@car.model} #{@car.year}" %></div>
+						<% end %>
 					</div>
 					<h1>
 						<%= @car.name %>
@@ -31,72 +35,98 @@
 						</div>
 						<div class="clear"></div>
 						<div class="features_table">
-							<div class="line">
-								<div class="left">Model, Body type:</div>
-								<div class="right"><%= "#{@car.model}, #{@car.type_product}" %></div>
-							</div>
-							<div class="line">
-								<div class="left">Year:</div>
-								<div class="right"><%= @car.year %></div>
-							</div>
-							<div class="line">
-								<div class="left">Fuel:</div>
-								<div class="right"><%= @car.fuel %></div>
-							</div>
-							<div class="line">
-								<div class="left">Engine:</div>
-								<div class="right"><%= @car.engine %></div>
-							</div>
-							<div class="line">
-								<div class="left">Transmision:</div>
-								<div class="right"><%= @car.transmission %></div>
-							</div>
-							<div class="line">
-								<div class="left">Color:</div>
-								<div class="right">
-									<span class="color" style="background-color:<%= @car.color %>"></span> <%= @car.color %>
+							<% if @car.model && @car.type_product %>
+								<div class="line">
+									<div class="left">Model, Body type:</div>
+									<div class="right"><%= "#{@car.model}, #{@car.type_product}" %></div>
 								</div>
-							</div>
+							<% end %>
+							<% if @car.year %>
+								<div class="line">
+									<div class="left">Fabrication:</div>
+									<div class="right"><%= @car.year %></div>
+								</div>
+							<% end %>
+							<% if @car.fuel %>
+								<div class="line">
+									<div class="left">Fuel:</div>
+									<div class="right"><%= @car.fuel %></div>
+								</div>
+							<% end %>
+							<% if @car.engine %>
+								<div class="line">
+									<div class="left">Engine:</div>
+									<div class="right"><%= @car.engine %></div>
+								</div>
+							<% end %>
+							<% if @car.transmission %>
+								<div class="line">
+									<div class="left">Transmision:</div>
+									<div class="right"><%= @car.transmission %></div>
+								</div>
+							<% end %>
+							<% if @car.color %>
+								<div class="line">
+									<div class="left">Color:</div>
+									<div class="right">
+										<span class="color" style="background-color:<%= @car.color %>"></span> <%= @car.color %>
+									</div>
+								</div>
+							<% end %>
+							<% if @car.condition %>
 							<div class="line">
 								<div class="left">Condition:</div>
 								<div class="right">
 									<%= @car.condition %>
 								</div>
 							</div>
-							<div class="line">
-								<div class="left">Year:</div>
-								<div class="right">
-									<%= @car.year %>
+							<% end %>
+							<% if @car.year %>
+								<div class="line">
+									<div class="left">Year:</div>
+									<div class="right">
+										<%= @car.year %>
+									</div>
 								</div>
-							</div>
-							<div class="line">
-								<div class="left">Plate Number:</div>
-								<div class="right">
-									<%= "#{@car.plate_number}, #{@car.city}, #{@car.province}" %>
+							<% end %>
+							<% if @car.plate_number %>
+								<div class="line">
+									<div class="left">Plate Number:</div>
+									<div class="right">
+										<%= @car.plate_number %>
+									</div>
 								</div>
-							</div>
-							<div class="line">
-								<div class="left">Expire Date:</div>
-								<div class="right">
-									<%= @car.exp_date %>
+							<% end %>
+							<% if @car.city || @car.province %>
+								<div class="line">
+									<div class="left">Location:</div>
+									<div class="right"><%= @car.city %></div>
 								</div>
-							</div>
-							<div class="line">
-								<div class="left">Kilometer:</div>
-								<div class="right"><%= @car.kilometer %> KM</div>
-							</div>
-							<div class="line">
-								<div class="left">Doors:</div>
-								<div class="right"><%= @car.door %></div>
-							</div>
-							<div class="line">
-								<div class="left">Seats:</div>
-								<div class="right"><%= @car.seat %></div>
-							</div>
-							<div class="line">
-								<div class="left">Cyclinders:</div>
-								<div class="right"><%= @car.cyclinders %></div>
-							</div>
+							<% end %>
+							<% if @car.kilometer %>
+								<div class="line">
+									<div class="left">Kilometer:</div>
+									<div class="right"><%= @car.kilometer %> KM</div>
+								</div>
+							<% end %>
+							<% if @car.door %>
+								<div class="line">
+									<div class="left">Doors:</div>
+									<div class="right"><%= @car.door %></div>
+								</div>
+							<% end %>
+							<% if @car.seat %>
+								<div class="line">
+									<div class="left">Seats:</div>
+									<div class="right"><%= @car.seat %></div>
+								</div>
+							<% end %>
+							<% if @car.cyclinders %>
+								<div class="line">
+									<div class="left">Cyclinders:</div>
+									<div class="right"><%= @car.cyclinders %></div>
+								</div>
+							<% end %>
 						</div>
 						<%= link_to 'Add To Compare', compare_path(@car), class: "btn btn-primary" %>
 					</div>
@@ -104,12 +134,14 @@
 					<div class="info_box">
 						<div class="car_contacts">
 							<h2><strong>Detail</strong> Information</h2>
-							<div>
-								<b>Location: </b>
-								<br/>
-								<span class="glyphicon glyphicon-map-marker"></span> <%= @car.location %> , 
-								<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@car.updated_at) %>
-							</div><br/>
+							<% if @car.location %>
+								<div>
+									<b>Location: </b>
+									<br/>
+									<span class="glyphicon glyphicon-map-marker"></span> <%= @car.location %> ,
+									<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@car.updated_at) %>
+								</div><br/>
+							<% end %>
 							<%= @car.description.html_safe %>
 							<p></p>
 							<div class="clear"></div>
@@ -198,12 +230,18 @@
 										</p>
 										<div class="clear"></div>
 									</div><br>
-									<div class="addr detail"><%= @car.user.profile.address %></div>
-									<div class="phones detail"><%= @car.user.profile.phone %></div>
-									<div class="email detail single_line">
-										<a href="mailto:<%= @car.user.email %>" rel="moc/eciujretniw//elpmaxe" class="email_link_replace markered"><%= @car.user.email %>
-										</a>
-									</div>
+									<% if @car.user.profile.address %>
+										<div class="addr detail"><%= @car.user.profile.address %></div>
+									<% end %>
+									<% if @car.user.profile.phone %>
+										<div class="phones detail"><%= @car.user.profile.phone %></div>
+									<% end %>
+									<% if @car.user.email %>
+										<div class="email detail single_line">
+											<a href="mailto:<%= @car.user.email %>" rel="moc/eciujretniw//elpmaxe" class="email_link_replace markered"><%= @car.user.email %>
+											</a>
+										</div>
+									<% end %>
 									<div class="clear"></div>
 								</div>
 							</div>

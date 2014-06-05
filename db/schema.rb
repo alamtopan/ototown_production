@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20140509065502) do
     t.string   "phone"
     t.text     "address"
     t.integer  "price"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.boolean  "active"
     t.string   "link_url"
     t.text     "content"
   end
@@ -304,7 +304,7 @@ ActiveRecord::Schema.define(version: 20140509065502) do
   end
 
   create_table "sessions", force: true do |t|
-    t.string   "session_id", null: false
+    t.string   "session_id"
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

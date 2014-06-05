@@ -26,8 +26,12 @@
 			    <%= f.select :transmission, options_for_select(@transmissions,search.present? ? search[:transmission] : ''), {include_blank: 'Choose One'}, class: 'custom-select-mod' %>
 				</div>
 				<div class="select_wrapper">
-					<label><span>* </span><strong>Year:</strong></label>
-			    <%= f.select :year, options_for_select(@years,search.present? ? search[:year] : ''), {include_blank: 'Choose One'}, class: 'custom-select-mod' %>
+					<label><span>* </span><strong>Minimum Year:</strong></label>
+			    <%= f.select :year_from, options_for_select(@years_min,search.present? ? search[:year_from] : ''), {include_blank: 'Choose Min Year'}, class: 'custom-select-mod' %>
+				</div>
+				<div class="select_wrapper">
+					<label><span>* </span><strong>Maximal Year:</strong></label>
+			    <%= f.select :year_to, options_for_select(@years_max,search.present? ? search[:year_to] : ''), {include_blank: 'Choose Max Year'}, class: 'custom-select-mod' %>
 				</div>
 				<div class="select_wrapper">
 					<label><span>* </span><strong>Body Type:</strong></label>
@@ -42,8 +46,12 @@
 					<%= f.text_field :city, class: 'custom-select-mod custom-select-mod2', id: 'city_attributes', value: search.present? ? search[:city] : '' %>
 				</div>
 				<div class="select_wrapper hm">
-					<label><span>* </span><strong>Price </strong></label>
-			    <%= f.select :price, options_for_select(@prices, search.present? ? search[:price] : '' ), {include_blank: 'Select Price'}, class: 'custom-select-mod' %>
+					<label><span>* </span><strong>Minimal Price </strong></label>
+			    <%= f.select :price_from, options_for_select(@prices_min, search.present? ? search[:price_from] : '' ), {include_blank: 'Select Price'}, class: 'custom-select-mod' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Maximal Price </strong></label>
+			    <%= f.select :price_to, options_for_select(@prices_max, search.present? ? search[:price_to] : '' ), {include_blank: 'Select Price'}, class: 'custom-select-mod' %>
 				</div>
 				<div class="select_wrapper hm">
 					<label><span>* </span><strong>Keyword:</strong></label>
