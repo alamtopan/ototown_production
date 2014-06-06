@@ -3367,8 +3367,6 @@ ul.personal_list li .grey_area span{
 	height: 100%;
 	position: absolute;
 	z-index: 3;
-	background: transparent url(../../../assets/denim.png) repeat;
-	opacity: .6;
 }
 .carousel-control{
 	z-index: 4;
