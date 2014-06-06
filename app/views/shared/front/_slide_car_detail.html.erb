@@ -3,7 +3,7 @@
     <div class="carousel-inner">
       <% images.each_with_index do |product,index| %>
         <div class="item <%= 'active' if index.zero? %>">
-          <%= image_tag product.image.url, style: 'width:100%' %>
+          <%= x_image_tag product.image.url, style: 'width:100%' %>
         </div>
       <% end %>        
     </div>

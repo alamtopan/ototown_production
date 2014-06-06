@@ -9,6 +9,9 @@ only screen and (min-device-width: 800px) and (max-device-width: 980px){
 		min-width:800px;
 		width: 100%;
 	}
+	.carousel-control{
+		display: none!important;
+	}	
 	#header .top_info{
 		width: auto;
 		margin: 0 auto;
