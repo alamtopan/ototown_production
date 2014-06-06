@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509065502) do
+ActiveRecord::Schema.define(version: 20140606075809) do
 
   create_table "advertisements", force: true do |t|
     t.string   "title"
@@ -261,7 +261,7 @@ ActiveRecord::Schema.define(version: 20140509065502) do
     t.string   "type_product"
     t.string   "brand"
     t.string   "model"
-    t.string   "year"
+    t.integer  "year"
     t.string   "color"
     t.string   "plate_number"
     t.date     "exp_date"
