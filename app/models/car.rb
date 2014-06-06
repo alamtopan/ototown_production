@@ -36,8 +36,8 @@ class Car < Product
           end
   scope :filter_by_year, ->(year1, year2) do
             return if year1.blank? && year2.blank?
-            return where('Integer(year) <= ? OR Integer(year) >= ?', year2, year1) if year1.blank? || year2.blank?
-            where('Integer(year) <= ? AND Integer(year) >= ?', year2, year1) if year1.present? && year2.present?
+            return where('year <= ? OR year >= ?', year2, year1) if year1.blank? || year2.blank?
+            where('year <= ? AND year >= ?', year2, year1) if year1.present? && year2.present?
           end
   scope :filter_by_type_product, ->(type_product) do
             return if type_product.blank?

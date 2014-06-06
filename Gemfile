@@ -20,7 +20,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # group :db do
-  gem 'mysql2','0.3.11'
+  gem 'pg'
+  #gem 'mysql2','0.3.11'
   gem 'ancestry'                        # Table Tree tool
   gem 'inherited_resources'             # DRY for CRUD methods in controller
   gem 'kaminari'                        # pagination
@@ -63,7 +64,6 @@ end
 
 group :production, :staging do
   gem 'unicorn'
-  gem 'pg'
   gem 'rails_12factor'
   gem 'capistrano', '~> 3.1.0'
   gem 'capistrano-rails', '~> 1.1.0'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509065502) do
+ActiveRecord::Schema.define(version: 20140606105235) do
 
   create_table "advertisements", force: true do |t|
     t.string   "title"
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20140509065502) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",         precision: 10, scale: 0
+    t.decimal  "price"
     t.integer  "product_id"
     t.integer  "loan_term"
     t.integer  "interest_rate"
-    t.decimal  "down_payment",  precision: 10, scale: 0
+    t.decimal  "down_payment"
     t.string   "category"
     t.date     "start_at"
     t.date     "end_at"
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 20140509065502) do
   add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
   add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
   add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
-  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: {"impressionable_type"=>nil, "message"=>255, "impressionable_id"=>nil}, using: :btree
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "messages", force: true do |t|
@@ -261,7 +261,7 @@ ActiveRecord::Schema.define(version: 20140509065502) do
     t.string   "type_product"
     t.string   "brand"
     t.string   "model"
-    t.string   "year"
+    t.integer  "year"
     t.string   "color"
     t.string   "plate_number"
     t.date     "exp_date"
