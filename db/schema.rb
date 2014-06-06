@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605164721) do
+ActiveRecord::Schema.define(version: 20140509065502) do
 
   create_table "advertisements", force: true do |t|
     t.string   "title"
@@ -278,7 +278,7 @@ ActiveRecord::Schema.define(version: 20140605164721) do
     t.string   "city"
     t.string   "province"
     t.integer  "user_id"
-    t.integer  "price"
+    t.string   "price"
     t.boolean  "status"
     t.boolean  "negotiable"
     t.string   "slug"
