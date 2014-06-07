@@ -22,7 +22,7 @@
               <div>
                 <table class="table table-striped">
                   <tr>
-                    <td>Price: <b><%= number_to_currency(car.price, unit: 'Rp.') %></b></td>
+                    <td>Price: <b><%= car.price.present? ? number_to_currency(car.price, unit: 'Rp.') : 'Call Us' %></b></td>
                   </tr>
                   <tr>
                     <td>Year: <b><%= car.year %></b></td>

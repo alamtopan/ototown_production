@@ -30,7 +30,7 @@
 					<div class="car_characteristics">
 						<a href="#" class="print" onclick="window.print();return false;"></a>
 						<div class="price" data-currency="Rp" data-price="<%= @sparepart.price %>" style="margin-left:10px; margin-top:15px;">
-							<%= number_to_currency(@sparepart.price, unit: 'Rp.') %> <%= "/nego" if @sparepart.negotiable == true %>
+							<%= @sparepart.price.present? ? number_to_currency(@sparepart.price, unit: 'Rp.') : 'Call Us' %> <%= "/nego" if @sparepart.negotiable == true %>
 						</div>
 						<div class="clear"></div>
 						<div class="features_table">

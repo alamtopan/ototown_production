@@ -20,7 +20,7 @@
 								<%= sparepart.name %>
 							<% end %>
 						</h4>
-						<div class="price"><%= number_to_currency(sparepart.price, unit: 'Rp.') %>
+						<div class="price"><%= sparepart.price.present? ? number_to_currency(sparepart.price, unit: 'Rp.') : 'Call Us' %>
 						<%= "/nego" if sparepart.negotiable == true %></div>
 						<div class="mgs">
 							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(sparepart.updated_at) %>

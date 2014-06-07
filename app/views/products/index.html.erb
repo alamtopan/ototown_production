@@ -38,7 +38,7 @@
 						<%= link_to product.name, detail_sparepart_path(product) if product.category_id == 2 %>
 					</h2>
 					<div class="date"><%= time_ago_in_words(product.updated_at) %></div>
-					<div class="price"><%= number_to_currency product.price, unit: 'Rp.' %></div>
+					<div class="price"><%= product.price.present? ? number_to_currency(product.price, unit: 'Rp.') : 'Call Us' %></div>
 				</div>
 				<div class="location">
 					Year: <%= product.year %><br>

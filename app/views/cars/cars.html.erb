@@ -22,7 +22,7 @@
 								<%= car.name %>
 							<% end %>
 						</h4>
-						<div class="price"><%= number_to_currency(car.price, unit: 'Rp.') %> <%= "/nego" if car.negotiable == true %></div>
+						<div class="price"><%= car.price.present? ? number_to_currency(car.price, unit: 'Rp.') : 'Call Us' %> <%= "/nego" if car.negotiable == true %></div>
 						<div class="mgs">
 							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(car.updated_at) %>
 							<span class="glyphicon glyphicon-bookmark"></span> <%= car.condition %>

@@ -20,7 +20,7 @@
                 <%= sparepart.name %>
               <% end %>
             </h4>
-            <div class="price"><%= number_to_currency(sparepart.price, unit: 'Rp.') %> <%= "/nego" if sparepart.negotiable == true %></div>
+            <div class="price"><%= sparepart.price.present? ? number_to_currency(sparepart.price, unit: 'Rp.') : 'Call Us' %> <%= "/nego" if sparepart.negotiable == true %></div>
           </div>
           <div class="clear"></div>
           <div class="grey_area">
