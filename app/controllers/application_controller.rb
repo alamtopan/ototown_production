@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :footer_content
   before_filter :advertisements
+  before_filter :select_search_filter
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password) }
@@ -51,6 +52,46 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << :username
+    end
+
+    def select_search_filter
+      @years_min = (1945..Time.new.year).to_a.sort.reverse.map{|y| [y, y]}
+      @years_max = (1946..Time.new.year).to_a.sort.reverse.map{|y| [y, y]}
+      @prices_min = [['0','0'],
+                    ['25.000.000','25000000'],
+                    ['50.000.000','50000000'],
+                    ['75.000.000','75000000'],
+                    ['100.000.000','100000000'],
+                    ['125.000.000','125000000'],
+                    ['150.000.000','150000000'],
+                    ['175.000.000','175000000'],
+                    ['200.000.000','200000000'],
+                    ['250.000.000','250000000'],
+                    ['300.000.000','300000000'],
+                    ['350.000.000','350000000'],
+                    ['400.000.000','400000000'],
+                    ['450.000.000','450000000'],
+                    ['500.000.000','500000000'],
+                    ['750.000.000','750000000'],
+                    ['1.000.000.000','1000000000']]
+
+      @prices_max = [['25.000.000','25000000'],
+                    ['50.000.000','50000000'],
+                    ['75.000.000','75000000'],
+                    ['100.000.000','100000000'],
+                    ['125.000.000','125000000'],
+                    ['150.000.000','150000000'],
+                    ['175.000.000','175000000'],
+                    ['200.000.000','200000000'],
+                    ['250.000.000','250000000'],
+                    ['300.000.000','300000000'],
+                    ['350.000.000','350000000'],
+                    ['400.000.000','400000000'],
+                    ['450.000.000','450000000'],
+                    ['500.000.000','500000000'],
+                    ['750.000.000','750000000'],
+                    ['1.000.000.000','1000000000'],
+                    ['> 1.000.000.000',10]]
     end
 
 end
