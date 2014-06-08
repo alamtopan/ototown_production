@@ -41,6 +41,7 @@ class ApplicationController < ActionController::Base
       @advertisement_home_side_left = Advertisement.published.where("position =?","Home Side Left").first
       @advertisement_home_side_right = Advertisement.published.where("position =?","Home Side Right").first
       @advertisement_home_sidebar_right = Advertisement.published.where("position =?","Home Sidebar Right")
+      @advertisement_home_sidebar_right_with_des = Advertisement.published.where("position =?","Home Sidebar Right With Information").first
       @advertisement_catalog_side_left = Advertisement.published.where("position =?","Catalog Side Left").first
       @advertisement_catalog_side_right = Advertisement.published.where("position =?","Catalog Side Right").first
       @advertisement_detail_car_side_left = Advertisement.published.where("position =?","Detail Car Side Left").first
