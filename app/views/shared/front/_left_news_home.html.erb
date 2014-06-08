@@ -1,10 +1,11 @@
 <div class="news_wrapper" style="padding-top:25px;">
 	<% if @advertisement_home_sidebar_right_with_des.present? %>
 		<div class="news">
-			<h2><strong>Latest</strong> News</h2>
 			<div>
 				<a href="<%= @advertisement_news_side_right_with_des.link_url %>">
-					<h5 class="uppercase"><%= @advertisement_home_sidebar_right_with_des.title %></h5>
+					<h5 class="uppercase">
+						<b><%= @advertisement_home_sidebar_right_with_des.title %></b>
+					</h5>
 				</a>
 				<a href="<%= @advertisement_home_sidebar_right_with_des.link_url %>" class="thumb">
 					<%= x_image_tag "#{@advertisement_home_sidebar_right_with_des.picture}", style: "width: 100%" %>
