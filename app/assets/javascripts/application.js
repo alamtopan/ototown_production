@@ -45,6 +45,8 @@ $(function() {
 
 $(document).ready(function(){
 
+  $('.fb-comments').attr('data-width', '100%');
+  
   $('#share1').share({
       networks: ['facebook','pinterest','googleplus','twitter','linkedin','tumblr','email','stumbleupon','digg']
   });

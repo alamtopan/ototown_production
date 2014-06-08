@@ -10,6 +10,9 @@ only screen and (min-device-width: 500px) and (max-device-width: 600px){
 		width: 100%;
 		padding-top: 40px;
 	}
+	.carousel-control{
+		display: none!important;
+	}	
 	h1{
 		font-size: 20px;
 	}

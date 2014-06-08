@@ -1,11 +1,10 @@
 default: &default
-  adapter: mysql2
+  adapter: postgresql
+  encoding: unicode
   database: ototown_dev
-  username: root
-  password: 
   pool: 5
-  timeout: 5000
-  socket: /opt/lampp/var/mysql/mysql.sock
+  username: topan
+  password: develop123
 
 development:
   <<: *default
@@ -13,12 +12,13 @@ test:
   <<: *default
   database: ototown_test
 
-#production:
-  #adapter: postgresql
-  #encoding: unicode
-  #database: dfvl642u9eut4a
-  #port: 5432
-  #host: ec2-54-225-103-9.compute-1.amazonaws.com
-  #username: xmkpriosmzhdsx
-  #password: pa5LiOnHnyW2lhQniGCN2ici9n
+
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: dfvl642u9eut4a
+#   port: 5432
+#   host: ec2-54-225-103-9.compute-1.amazonaws.com
+#   username: xmkpriosmzhdsx
+#   password: pa5LiOnHnyW2lhQniGCN2ici9n
 

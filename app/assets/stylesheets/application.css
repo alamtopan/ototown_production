@@ -38,4 +38,7 @@
   	width: 300px!important;
   }
 
+  #fbcomments, .fb_iframe_widget, .fb_iframe_widget[style], .fb_iframe_widget iframe[style], #fbcomments iframe[style] {
+	width: 100% !important;
+	}
 

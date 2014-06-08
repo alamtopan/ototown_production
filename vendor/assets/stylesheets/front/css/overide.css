@@ -156,9 +156,9 @@
 .width-auto{
 	width: 97.5%!important;
 }
-.wrapper_login_page{
+/*.wrapper_login_page{
 	min-width:940px;
-}
+}*/
 .wrapper_login_page #login-page{
 	display: block;
 	width:260px;
@@ -200,13 +200,9 @@
 }
 .wrapper_login_page #confirm-email-page{
 	display: block;
-	width:260px;
-	min-height:150px;
-	position: absolute;
-	margin-left: -130px;
-	margin-top: -145px;
-	left:50%;
-	top:50%;
+	width: 260px;
+	min-height: 150px;
+	margin: auto;
 }
 
 input.error,select.error{
