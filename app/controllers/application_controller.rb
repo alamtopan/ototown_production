@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
     end
 
     def advertisements
+      @news_home = News.includes(:category_news).where("category_news.title = 'News'").published.limit(3)
       @advertisement_home_side_left = Advertisement.published.where("position =?","Home Side Left").first
       @advertisement_home_side_right = Advertisement.published.where("position =?","Home Side Right").first
       @advertisement_home_sidebar_right = Advertisement.published.where("position =?","Home Sidebar Right")

@@ -1,22 +1,23 @@
-<div class="tabs_wrapper home_tabs section">
-	<ul class="tabs">
-		<li class="current">Latest Spare Parts</li>
-	</ul>
-	<div class="box visible">
-		<%= link_to "Show all...", spareparts_path, class: "all" %></a>
- 		<div class="results"><span>Found <%= @spareparts.size %> Spareparts</span></div>
- 		<div class="clear"></div>
- 		<div class="tabs_carousel">
- 		<% @spareparts.each_with_index do |sparepart, index| %>
-   		<div class="slide">
-   			<%= link_to detail_sparepart_path(sparepart),class: "img" do %>
-					<%= image_tag sparepart.images.first.image.url(:thumb), class: "small_image"  if sparepart.images.present? %>
-				<% end %>
-				<%= link_to detail_sparepart_path(sparepart),class: "title" do %>
-					<%= sparepart.name %>
-				<% end %>
-			</div>
-		<% end %>
-		</div>
+<div class="recent_blog">
+	<div class="tabs_wrapper home_tabs section" style="padding-bottom:10px">
+		<ul class="tabs">
+			<li class="current active">Latest News</li>
+		</ul>
 	</div>
+	<%= link_to "Show All News...",news_path, class: "all", style: "float: right" %></a>
+	<div class="clear"></div>
+	<% @news_home.each_with_index do |news, index| %>
+		<div class="post_block dealers <%= 'last' if index == @news_home.size-1 %>">
+			<%= link_to detail_news_path(news),class: "thumb deal" do %>
+				<%= x_image_tag news.pic.url(:medium) %>
+			<% end %>
+			<h5>
+				<%= link_to detail_news_path(news) do %>
+					<%= news.title %>
+				<% end %>
+			</h5>
+			<div class="date"><span><%= news.created_at %></span></div>
+			<div class="post"><p><%= truncate strip_tags(news.content.to_s), length: 30 %></p></div>
+		</div>
+	<% end %>
 </div>
