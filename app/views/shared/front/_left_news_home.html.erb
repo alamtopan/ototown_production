@@ -1,15 +1,22 @@
 <div class="news_wrapper" style="padding-top:25px;">
 	<% if @advertisement_home_sidebar_right_with_des.present? %>
-		<div class="widget">
-			<a href="<%= @advertisement_news_side_right_with_des.link_url %>">
-				<h4 class="uppercase"><strong><%= @advertisement_home_sidebar_right_with_des.title %></strong></h4>
-			</a>
-			<div class="thumb_box">
-				<a href="<%= @advertisement_home_sidebar_right_with_des.link_url %>" class="thumb">
-				<%= x_image_tag "#{@advertisement_home_sidebar_right_with_des.picture}" %>
-				</a>
+		<div class="news">
+			<h2><strong>Latest</strong> News</h2>
+			<div>
+					<div class="news_box">
+						<a href="<%= @advertisement_news_side_right_with_des.link_url %>">
+							<h5><%= @advertisement_home_sidebar_right_with_des.title %></h5>
+						</a>
+						<a href="<%= @advertisement_home_sidebar_right_with_des.link_url %>" class="thumb">
+							<%= x_image_tag "#{@advertisement_home_sidebar_right_with_des.picture}" %>
+						</a>
+						<div class="date"><span><%= @advertisement_home_sidebar_right_with_des.created_at.strftime('%d %b %Y - at %I:%M%p') %></span></div>
+						<div class="post">
+							<p><%= truncate strip_tags(@advertisement_home_sidebar_right_with_des.content.to_s), length: 60 %></p>
+						</div>
+					</div>
 			</div>
-			<p><%= truncate strip_tags(@advertisement_home_sidebar_right_with_des.content.to_s), length: 100 %></p>
+			<br>
 		</div>
 	<% end %>
 	<% if @advertisement_home_sidebar_right.present? %>
