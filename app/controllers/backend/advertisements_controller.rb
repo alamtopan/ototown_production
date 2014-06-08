@@ -8,6 +8,7 @@ class Backend::AdvertisementsController < Backend::ApplicationController
 									'Home Side Left',
 									'Home Side Right',
 									'Home Sidebar Right',
+									'Home Sidebar Right With Information',
 									'Catalog Side Left',
 									'Catalog Side Right',
 									'News Sidebar Right Without Information',
