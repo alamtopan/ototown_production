@@ -9,7 +9,7 @@
 	<% @news_home.each_with_index do |news, index| %>
 		<div class="post_block dealers <%= 'last' if index == @news_home.size-1 %>">
 			<%= link_to detail_news_path(news),class: "thumb deal" do %>
-				<%= x_image_tag news.pic.url(:thumb) %>
+				<%= x_image_tag news.pic.url(:medium) %>
 			<% end %>
 			<h5>
 				<%= link_to detail_news_path(news) do %>
