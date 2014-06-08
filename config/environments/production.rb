@@ -76,8 +76,8 @@ Ototown::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  config.action_mailer.asset_host = 'http://ototown.tk'
-  config.action_mailer.default_url_options = { host: 'ototown.tk' }
+  config.action_mailer.asset_host = 'http://ototown.com'
+  config.action_mailer.default_url_options = { host: 'ototown.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
