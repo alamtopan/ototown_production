@@ -25,9 +25,9 @@
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1444092132515552";
+	  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&appId=1444092132515552&version=v2.0";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="fb-comments"data-href="<%= detail_news_url(@news.slug) %>" data-num-posts="10" data-colorscheme="light" mobile="false">
+<div class="fb-comments"data-href="<%= detail_news_url(@news.slug) %>" data-numposts="10" data-colorscheme="light" mobile="false" data-colorscheme="light">
 </div>
