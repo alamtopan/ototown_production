@@ -4,11 +4,11 @@ class ProductsController < UsersController
 	before_action :generate_select, except: [:index, :archive, :destroy, :change_status]
 
 	def index
-		@products = current_user.products.where('status = TRUE').page(params[:page])
+		@products = current_user.products.where('status = TRUE').page(params[:page]).per(15)
 	end
 
 	def archive
-		@products = current_user.products.where('status = FALSE').page(params[:page])
+		@products = current_user.products.where('status = FALSE').page(params[:page]).per(15)
 	end
 
 	def new
