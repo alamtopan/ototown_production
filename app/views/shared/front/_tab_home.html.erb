@@ -13,7 +13,7 @@
 			<% end %>
 			<h5>
 				<%= link_to detail_news_path(news) do %>
-					<%= news.title %>
+					<%= truncate strip_tags(news.title), length: 40 %>
 				<% end %>
 			</h5>
 			<div class="date"><span><%= news.created_at %></span></div>
