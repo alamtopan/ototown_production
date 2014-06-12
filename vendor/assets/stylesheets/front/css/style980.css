@@ -618,7 +618,7 @@ only screen and (min-device-width: 800px) and (max-device-width: 980px){
 	.sell_box .select_wrapper,
 	.sell_box .input_wrapper,
 	.sell_box .single_chb_wrapper{
-		width: 33%;
+		width: 50%;
 	}
 	.sell_box .select_wrapper.last,
 	.sell_box .input_wrapper.last,

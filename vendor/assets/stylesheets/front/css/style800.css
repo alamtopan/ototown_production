@@ -290,7 +290,7 @@ only screen and (min-device-width: 700px) and (max-device-width: 800px){
 	}
 	.recent_blog .post_block.last{
 		margin: 0;
-		float: right;
+		float: left;
 	}
 	.recent_blog .post_block a.thumb{
 		float: none;
@@ -718,7 +718,7 @@ only screen and (min-device-width: 700px) and (max-device-width: 800px){
 	.sell_box .select_wrapper,
 	.sell_box .input_wrapper,
 	.sell_box .single_chb_wrapper{
-		width: 33%;
+		width: 50%;
 	}
 	.sell_box .select_wrapper.last,
 	.sell_box .input_wrapper.last,
