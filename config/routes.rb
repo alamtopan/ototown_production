@@ -1,6 +1,6 @@
 Ototown::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  root 'publics#home'
+  #root 'publics#home'
   get  '/search', to: 'publics#search'
   get  '/search_sparepart', to: 'publics#search_sparepart', as: 'search_sparepart'
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
