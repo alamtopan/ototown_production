@@ -32,6 +32,7 @@ class User < Operator
       if registered_user
         return registered_user
       else
+        binding.pry
         user = User.create(username:auth.extra.raw_info.name,
                             provider:auth.provider,
                             uid:auth.uid,
