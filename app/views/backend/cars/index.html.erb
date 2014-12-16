@@ -21,7 +21,7 @@
 				<td class="text-center"><%= index + 1 %></td>
 				<td><a href="javascript:void(0)"><%= product.name %></a></td>
 				<td><%= product.condition %></td>
-				<td><%= product.user.email %></td>
+				<td><%#= product.user.email %></td>
 				<td><%= product.type_product %></td>
 				<td class="text-center">
 					<%= render partial: 'backend/shared/action_buttons', locals: {resource: product, confirmation: "#{product.name} will be deleted, are you sure ?"} %>
