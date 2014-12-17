@@ -1,0 +1,62 @@
+<div class="catalog_sidebar">
+	<div class="search_auto no-shadow">
+		<% search = params[:search] %>
+		<%= form_for :search, url: search_sparepart_path, method: 'get' do |f| %>
+			<%= f.hidden_field :category_id, value: 2 %>
+			<div class="sell_box sell_box_1">
+				<h2><strong>Search</strong> Sparepart</h2>
+				<div class="select_wrapper">
+					<span></span><strong> <%= f.radio_button :condition, "All", {checked: search.present? ? search[:condition] == 'All' : ''} %> All</strong>
+					<span></span><strong> <%= f.radio_button :condition, "Used", {checked: search.present? ? search[:condition] == 'Used' : ''} %> Used</strong>
+					<span></span><strong> <%= f.radio_button :condition, "New", {checked: search.present? ? search[:condition] == 'New' : ''} %> New</strong>
+					<span></span><strong> <%= f.radio_button :condition, "Classic", {checked: search.present? ? search[:condition] == 'Classic' : ''} %> Classic</strong>
+				</div>
+				<div class="br"></div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Brand:</strong></label>
+					<%= f.select :brand, options_for_select(@brands,search.present? ? search[:brand] : ''), {include_blank: 'Choose One'}, class: 'custom-select-mod', id: 'brand_product', data: {url: brand_model_path} %>
+				</div>
+				<div class="select_wrapper hm">
+					<% @models = Model.where(brand_name: search.present? ? search[:brand] : '').map{|m| [m.name, m.name]} %>
+					<label><span>* </span><strong>Model: </strong></label>
+			    <%= f.select :model, options_for_select(@models.present? ? @models : '', search.present? ? search[:model] : ''), {include_blank: 'Choose One'}, class: 'custom-select-mod', id: 'model_product' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Minimal Year:</strong></label>
+			    <%= f.select :year_from, options_for_select(@years_min,search.present? ? search[:year_from] : ''), {include_blank: 'Choose Min Year'}, class: 'custom-select-mod' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Maximal Year:</strong></label>
+			    <%= f.select :year_to, options_for_select(@years_max,search.present? ? search[:year_to] : ''), {include_blank: 'Choose Max Year'}, class: 'custom-select-mod' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Body Type:</strong></label>
+			    <%= f.select :type_product, options_for_select(@types,search.present? ? search[:type_product] : ''), {include_blank: 'Choose One'}, class: 'custom-select-mod' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Province </strong></label>
+					<%= f.text_field :province, class: 'custom-select-mod custom-select-mod2', id: 'province_attributes', value: search.present? ? search[:province] : '' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>City </strong></label>
+					<%= f.text_field :city, class: 'custom-select-mod custom-select-mod2', id: 'city_attributes', value: search.present? ? search[:city] : '' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Minimal Price </strong></label>
+			    <%= f.select :price_from, options_for_select(@prices_min,search.present? ? search[:price_from] : ''), {include_blank: 'Select Min Price'}, class: 'custom-select-mod' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Maximal Price </strong></label>
+			    <%= f.select :price_to, options_for_select(@prices_max,search.present? ? search[:price_to] : ''), {include_blank: 'Select Max Price'}, class: 'custom-select-mod' %>
+				</div>
+				<div class="select_wrapper hm">
+					<label><span>* </span><strong>Keyword:</strong></label>
+					<%= f.text_field :name, class: 'custom-select-mod custom-select-mod2', value: search.present? ? search[:name] : '' %>
+				</div>
+				<%= f.submit :search, class: 'btn_search' %>
+				<div class="clear"></div>
+			</div>
+		<% end %>
+		<div class="clear"></div>
+	</div>
+</div>

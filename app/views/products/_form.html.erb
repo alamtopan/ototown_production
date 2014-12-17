@@ -1,0 +1,174 @@
+<%= form_for @product, html:{id: 'vehicle-form',multipart: true} do |f| %>
+	<div class="step_breadcrumb">
+		<a href="#" class="active" id="step_1">step 1.  SELECT CATEGORIES</a>
+		<a href="#" class="" id="step_2">step 2.  TECHNICAL CHARACTERISTICS</a>
+		<a href="#" class="" id="step_3">step 3.  PHOTO</a>
+	</div>
+	<div class="sell_box step_1">
+		<h2><strong>Categories</strong></h2>
+		<div class="col_1">
+			<span class="custom_chb_wrapper">
+				<span class="custom_chb">
+					<%= f.radio_button :condition, "Used", {id: "all"} %>
+					<label for="all"></label><span class="fr">Used</span>
+				</span>
+			</span>
+		</div>
+		<div class="col_2">
+			<span class="custom_chb_wrapper">
+				<span class="custom_chb">
+					<%= f.radio_button :condition, "New", {id: "new"} %>
+					<label for="used"></label><span class="fr">New</span>
+				</span>
+			</span>
+		</div>
+		<div class="col_3">
+			<span class="custom_chb_wrapper">
+				<span class="custom_chb">
+					<%= f.radio_button :condition, "Classic", {id: "classic"} %>
+					<label for="classic"></label><span class="fr">Classic</span>
+				</span>
+			</span>
+		</div>
+		<div class="br"></div>
+		<div class="col_1">
+			<div class="select_wrapper">
+				<label><span>* </span><strong>Category:</strong></label>
+		    <%= f.select :category_id, options_for_select([['Car','1'],['Spare parts','2']],@product.category_id), {include_blank: 'Select'}, class: 'form-control' %>
+			</div>
+		</div>
+		<div class="col_2">
+			<div class="input_wrapper">
+				<label><span>* </span><strong>Title:</strong></label>
+				<%= f.text_field :name, class: 'form-control' %>
+			</div>
+		</div>
+		<div class="col_3">
+			<div class="select_wrapper">
+				<label><span>* </span><strong>Status:</strong></label>
+		    <%= f.select :status, options_for_select([['Publish','true'],['Save Draft','false']],@product.status), {include_blank: 'Select'}, class: 'form-control' %>
+			</div>
+		</div>
+		<div class="input_wrapper" style="width:98%">
+			<label><span>* </span><strong>Description:</strong></label>
+			<%= f.text_area :description, class: 'post_content text', style: 'width:100%; height: 150px;' %>
+		</div>
+		<div class="clear"></div>
+		<h2></h2>
+		<div class="btn-next">
+			<a href="#" class="btn3">Back</a>
+			<a href="#" class="btn1">Next</a>
+		</div>
+	</div>
+	<div class="sell_box step_2" style="display: none;">
+		<h2><strong>Characteristics</strong></h2>
+		<div class="col_1">
+			<div class="input_wrapper">
+				<label><span>* </span><strong>Province:</strong></label>
+				<%= f.text_field :province, class: 'form-control', id: 'province_attributes' %>
+			</div>
+			<div class="input_wrapper">
+				<label><span>* </span><strong>City:</strong></label>
+				<%= f.text_field :city, class: 'form-control', id: 'city_attributes' %>
+			</div>
+			<div class="input_wrapper">
+				<label><span>* </span><strong>Location:</strong></label>
+	      <%= f.text_field :location, class: 'form-control', placeholder: 'Location' %>
+			</div>
+			<div class="input_wrapper cars">
+				<label><span>* </span><strong>Cylinders:</strong></label>
+	      <%= f.text_field :cyclinders, class: 'form-control', placeholder: 'Cyclinders' %>
+			</div>
+			<div class="input_wrapper cars">
+				<label><span>* </span><strong>Engine:</strong></label>
+	      <%= f.text_field :engine, class: 'form-control', placeholder: 'Engine' %>
+			</div>
+			<div class="input_wrapper cars">
+				<label><span>* </span><strong>Seat:</strong></label>
+	      <%= f.number_field :seat, class: 'form-control', placeholder: 'Seat' %>
+			</div>
+		</div>
+		<div class="col_2">
+			<div class="select_wrapper">
+				<label><span>* </span><strong>Brand:</strong></label>
+				<%= f.select :brand, options_for_select(@brands,@product.brand), {include_blank: 'Choose One'}, class: 'form-control', id: 'brand_product', data: {url: brand_model_path} %>
+			</div>
+			<div class="select_wrapper">
+				<label><span>* </span><strong>Model:</strong></label>
+		    <%= f.select :model, options_for_select(@models = Model.where(brand_name: @product.brand).map{|m| [m.name, m.name]}, @product.model), {include_blank: 'Choose One'}, class: 'form-control', id: 'model_product' %>
+			</div>
+			<div class="select_wrapper cars">
+				<label><span>* </span><strong>Transmission:</strong></label>
+		    <%= f.select :transmission, options_for_select(@transmissions,@product.transmission), {include_blank: 'Choose One'}, class: 'form-control' %>
+			</div>
+			<div class="select_wrapper">
+				<label><span>* </span><strong>Year:</strong></label>
+		    <%= f.select :year, options_for_select(@years,@product.year), {include_blank: 'Choose One'}, class: 'form-control' %>
+			</div>
+			<div class="input_wrapper cars">
+				<label><span>* </span><strong>Kilometer:</strong></label>
+	      <%= f.text_field :kilometer, class: 'form-control', placeholder: 'Kilometer' %>
+			</div>
+			<div class="select_wrapper">
+				<label><span>* </span><strong>Status Product:</strong></label>
+		    <%= f.select :status_sold, options_for_select(@status_sold,@product.status_sold), {include_blank: 'Choose One'}, class: 'form-control' %>
+			</div>
+		</div>
+		<div class="col_3">
+		<div class="input_wrapper">
+				<label><span>* </span><strong>Price:</strong></label>
+	      <%= f.text_field :price, class: 'form-control' %>
+			</div>
+			<div class="input_wrapper cars">
+				<label><span>* </span><strong>Fuel:</strong></label>
+	      <%= f.text_field :fuel, class: 'form-control', placeholder: 'Fuel' %>
+			</div>
+			<div class="input_wrapper cars">
+				<label><span></span><strong>Color: </strong></label>
+				<%= f.text_field :color, class: 'form-control', placeholder: 'Color' %>
+			</div>
+			<div class="select_wrapper">
+				<label><span>* </span><strong>Body Type:</strong></label>
+		    <%= f.select :type_product, options_for_select(@types,@product.type_product), {include_blank: 'Choose One'}, class: 'form-control' %>
+			</div>
+			<div class="input_wrapper cars">
+				<label><span>* </span><strong>Door:</strong></label>
+	      <%= f.number_field :door, class: 'form-control', placeholder: 'Door' %>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="clear"></div>
+		<h2></h2>
+		Price Negotiable
+		<br>
+		<%= f.radio_button :negotiable, true, {} %> YES
+		<%= f.radio_button :negotiable, false, {} %> NO
+		<h2></h2>
+		<div class="btn-next">
+			<a href="#" class="btn1">Next</a>
+		</div>
+	</div>
+	<div class="sell_box step_3" style="display: none;">
+		<div class="cars">
+			<h2><strong>Credit</strong> & Simulation</h2>
+			<div id="loaded-images"></div>
+			<%= f.fields_for (:advertise) do |adv| %>
+		    <%= render 'advertise_form', f: adv %>
+		  <% end %>
+		</div>
+		<h2><strong>Vehicle</strong> photos</h2>
+		<div id="loaded-images"></div>
+		<%= f.fields_for :images do |image| %>
+	    <%= render 'image_fields', f: image %>
+	  <% end %>
+	  <div class="links">
+	    <%= link_to_add_association '<button type="submit" id="add-image" class="btn btn-sm btn-primary">+ Add Image</button>'.html_safe, f, :images %>
+	  </div>
+		<div class="clear"></div>
+		<h2></h2>
+		<div class="btn-next">
+			<a href="#" class="btn3">Back</a>
+			<%= f.submit :add, class: 'btn10' %>
+		</div>
+	</div>
+<% end %>

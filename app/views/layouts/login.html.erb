@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ototown</title>
+  <%= render partial: 'shared/front/icon' %>
+  <%= stylesheet_link_tag "application_backend" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= yield %>
+	<%= javascript_include_tag "application_backend" %>
+</body>
+</html>

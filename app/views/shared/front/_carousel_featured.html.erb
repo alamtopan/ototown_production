@@ -1,0 +1,43 @@
+<div class="recent">
+	<h2><strong>Latest</strong> Vehicles On Sale</h2>
+	<div class="recent_carousel">
+		<% @cars.each do |car| %>
+			<div class="slide">
+				<% if car.status_sold.present? && car.status_sold == "Sold Out" %>
+					<%= image_tag "sold-out.png", class: "sold-out" %>
+				<% end %>
+				<%= link_to detail_car_path(car) do %>
+					<%= x_image_tag car.images.first.image.url(:normal) if car.images.present? %>
+					<div class="description">
+						<p>
+							Registration: <%= car.created_at.year %><br/>
+							Transmission: <%= car.transmission %><br/>
+							Year: <%= car.year %><br/>
+							Type: <%= car.type_product %>
+						</p>
+					</div>
+					<div class="title">
+						<%= car.brand %>
+						<span class="price"><%= car.price.present? ? number_to_currency(car.price, unit: 'Rp.') : 'Call Us' %></span>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="banners">
+	<div class="banner_1 main_banner">
+		<div class="text_wrapper">
+			<p class="title"><strong>Looking</strong> for a car?</p>
+			<p class="desc"><%= @cars_count.size %> Cars offers on site</p>
+		</div>
+		<%= link_to "Search",cars_path(:Used) %>
+	</div>
+	<div class="banner_2 main_banner">
+		<div class="text_wrapper">
+			<p class="title"><strong>Want</strong> to sell a car?</p>
+			<p class="desc">Add your offer now!</p>
+		</div>
+		<%= link_to "Sell",new_product_path %>
+	</div>
+</div>

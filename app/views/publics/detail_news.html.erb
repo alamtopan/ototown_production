@@ -1,0 +1,33 @@
+<h1><%= @news.title %></h1>
+<div class="grey_area">
+	<span class="glyphicon glyphicon-time"></span> <%= @news.created_at.strftime('%d %b %Y - at %I:%M%p') %>
+	<div class="blog_category">
+		<%= @news.category_news.try(:title) %>
+	</div>
+</div>
+<br>
+<div class="blog">
+	<div class="blog_single_post">
+		<div class="post">
+			<p>
+				<%= link_to detail_news_path(@news.slug) do %>
+					<%= image_tag "#{@news.pic}", class: "thumb left-float" %>
+				<% end %>
+				<%= @news.content.html_safe %></p>
+		</div>
+	</div>
+</div>
+<%= render "shared/front/share_media" %>
+<br>
+<div id="fb-root"></div>
+<script type="text/javascript">
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&appId=1444092132515552&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="fb-comments"data-href="<%= detail_news_url(@news.slug) %>" data-numposts="10" data-colorscheme="light" mobile="false" data-colorscheme="light">
+</div>

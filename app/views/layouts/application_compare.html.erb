@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ototown</title>
+  <meta charset="utf-8" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1" style="font-size: 14px;">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <%= render partial: 'shared/front/icon' %>
+  <%= stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="page">
+	<%= render partial: 'shared/front/header' %>
+	<div id="content">
+		<div class="content">
+			<div class="breadcrumbs margin-top80">
+				<%= link_to 'Home', root_path %>
+				<%= x_image_tag '../../assets/marker_2.gif' %>
+				<%= controller_name.titleize == 'Publics' ? action_name.titleize : controller_name.titleize %>
+			</div>
+			<div class="main_wrapper ">
+				<div class="layout_left_content">
+					<%= bootstrap_flash %>
+					<%= yield %>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<%= render partial: 'shared/front/footer' %>
+	<%= javascript_include_tag "application", media: "all", "data-turbolinks-track" => true %>
+</body>
+</html>

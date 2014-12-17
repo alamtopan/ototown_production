@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ototown</title>
+  <meta charset="utf-8" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1" style="font-size: 14px;">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta property="fb:app_id" content="1444092132515552"/>
+  <%= render partial: 'shared/front/icon' %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="page">
+	<%= render partial: 'shared/front/header' %>
+	<%= yield %>
+	<%= render partial: 'shared/front/footer' %>
+	<%= image_tag "#{@advertisement_detail_car_side_left.picture}", class: "side-reklame-home-left2" if @advertisement_detail_car_side_left.present? %>
+	<%= image_tag "#{@advertisement_detail_car_side_right.picture}", class: "side-reklame-home-right2" if @advertisement_detail_car_side_right.present? %>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<div class="margin-top80">
+	<div id="content">
+		<div class="content">
+			<div class="breadcrumbs">
+				<%= link_to 'Home', root_path %>
+				<%= x_image_tag '../../assets/marker_2.gif' %>
+				<%= link_to 'Cars', cars_path(@car.condition) %>
+				<%= x_image_tag '../../assets/marker_2.gif' %>
+				<%= @car.name %>
+			</div>
+			<div class="main_wrapper">
+				<div class="main_wrapper ">
+					<div class="cars_id">
+						<% if @car.brand %>
+							<div class="id">Brand <span><%= @car.brand %></span></div>
+						<% end %>
+						<% if @car.model %>
+							<div class="views">Model <%= "#{@car.model} #{@car.year}" %></div>
+						<% end %>
+					</div>
+					<h1>
+						<%= @car.name %>
+					</h1>
+					<div class="car_image_wrapper">
+						<% if @car.status_sold.present? && @car.status_sold == "Sold Out" %>
+							<%= image_tag "sold-out.png", class: "sold-out" %>
+						<% end %>
+						<%= render 'shared/front/slide_car_detail', images: @car.images %>
+						<%= render "shared/front/share_media" %>
+					</div>
+					<div class="car_characteristics">
+						<a href="#" class="print" onclick="window.print();return false;"></a>
+						<div class="price" data-currency="Rp" data-price="<%= @car.price %>" style="margin-left:10px; margin-top:15px;">
+							<%= @car.price.present? ? number_to_currency(@car.price, unit: 'Rp.') : 'Call Us' %> <%= "/nego" if @car.negotiable == true %>
+						</div>
+						<div class="clear"></div>
+						<div class="features_table">
+							<% if @car.model && @car.type_product %>
+								<div class="line">
+									<div class="left">Model, Body type:</div>
+									<div class="right"><%= "#{@car.model}, #{@car.type_product}" %></div>
+								</div>
+							<% end %>
+							<% if @car.fuel %>
+								<div class="line">
+									<div class="left">Fuel:</div>
+									<div class="right"><%= @car.fuel %></div>
+								</div>
+							<% end %>
+							<% if @car.engine %>
+								<div class="line">
+									<div class="left">Engine:</div>
+									<div class="right"><%= @car.engine %></div>
+								</div>
+							<% end %>
+							<% if @car.transmission %>
+								<div class="line">
+									<div class="left">Transmision:</div>
+									<div class="right"><%= @car.transmission %></div>
+								</div>
+							<% end %>
+							<% if @car.color %>
+								<div class="line">
+									<div class="left">Color:</div>
+									<div class="right">
+										<span class="color" style="background-color:<%= @car.color %>"></span> <%= @car.color %>
+									</div>
+								</div>
+							<% end %>
+							<% if @car.condition %>
+							<div class="line">
+								<div class="left">Condition:</div>
+								<div class="right">
+									<%= @car.condition %>
+								</div>
+							</div>
+							<% end %>
+							<% if @car.year %>
+								<div class="line">
+									<div class="left">Year:</div>
+									<div class="right">
+										<%= @car.year %>
+									</div>
+								</div>
+							<% end %>
+							<% if @car.plate_number %>
+								<div class="line">
+									<div class="left">Plate Number:</div>
+									<div class="right">
+										<%= @car.plate_number %>
+									</div>
+								</div>
+							<% end %>
+							<% if @car.city || @car.province %>
+								<div class="line">
+									<div class="left">Location:</div>
+									<div class="right"><%= @car.city %></div>
+								</div>
+							<% end %>
+							<% if @car.kilometer %>
+								<div class="line">
+									<div class="left">Kilometer:</div>
+									<div class="right"><%= @car.kilometer %> KM</div>
+								</div>
+							<% end %>
+							<% if @car.door %>
+								<div class="line">
+									<div class="left">Doors:</div>
+									<div class="right"><%= @car.door %></div>
+								</div>
+							<% end %>
+							<% if @car.seat %>
+								<div class="line">
+									<div class="left">Seats:</div>
+									<div class="right"><%= @car.seat %></div>
+								</div>
+							<% end %>
+							<% if @car.cyclinders %>
+								<div class="line">
+									<div class="left">Cyclinders:</div>
+									<div class="right"><%= @car.cyclinders %></div>
+								</div>
+							<% end %>
+						</div>
+						<%= link_to 'Add To Compare', compare_path(@car), class: "btn btn-primary" %>
+					</div>
+					<div class="clear"></div>
+					<div class="info_box">
+						<div class="car_contacts">
+							<h2><strong>Detail</strong> Information</h2>
+							<% if @car.location %>
+								<div>
+									<b>Location: </b>
+									<br/>
+									<span class="glyphicon glyphicon-map-marker"></span> <%= @car.location %> ,
+									<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words(@car.updated_at) %>
+								</div><br/>
+							<% end %>
+							<%= @car.description.html_safe %>
+							<p></p>
+							<div class="clear"></div>
+							<div class="clear"></div>
+						</div>
+						<% if @car.advertise.present? && @car.advertise.active %>
+							<div class="car_info credit-simulation">
+								<h2><strong>Credit</strong>& Simulation</h2>
+								<div id="calc-container">
+									<div id="calculator-tab">
+										<div id="calc-container">
+											<div id="calculator-tab">
+												<div class="sell_box step_2" style="">
+													<div class="width50">
+														<div class="marg-bottom10">
+															<label><span>* </span><strong>Price:</strong></label>
+															<input name="calc-price" type="text" class="text full100" id="calc-price" value="<%= number_to_currency(@car.advertise.price, unit: '') %>">
+														</div>
+														<div class="marg-bottom10">
+															<label><span>* </span><strong>Loan Term:</strong></label>
+															<input name="calc-tenor" type="number" class="text full100" id="calc-tenor1" value="<%= @car.advertise.loan_term %>"> <b class="font10">/Month</b>
+														</div>
+													</div>
+													<div class="width50">
+														<div class="marg-bottom10">
+															<label><span>* </span><strong>Interest Rate:</strong></label>
+															<input name="calc-tenor2" type="number" class="text full100" id="calc-tenor2" value="<%= @car.advertise.interest_rate %>"> <b class="font10">%</b>
+														</div>
+														<div class="marg-bottom10">
+															<label><span>* </span><strong>Down Payment:</strong></label>
+															<input name="calc-uangmuka" type="text" class="text full100" id="calc-uangmuka" value="<%= number_to_currency(@car.advertise.down_payment, unit: '') %>">
+														</div>
+													</div>
+													<div class="clear"></div>
+													<div class="clear"></div>
+													<h2></h2>
+													<div class="btn-next">
+														<a href="#" class="btn1 hitung" id="cicilan1">CALCULATE</a>
+													</div>
+													<br>
+													<div class="section_calculate">
+														<div>
+															<label><span>* </span><strong>Monthly Payment</strong></label>
+															<span class="cal">Rp.</span> <input type="text" class="text full-calculate" name="calc-angsuran" id="calc-angsuran">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="amortizationtable"></div>
+									</div>
+								</div>
+							</div>
+						<% end %>
+						<div class="fb-comment-car">
+							<div id="fb-root"></div>
+							<script type="text/javascript">
+								(function(d, s, id) {
+								  var js, fjs = d.getElementsByTagName(s)[0];
+								  if (d.getElementById(id)) return;
+								  js = d.createElement(s); js.id = id;
+								  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&appId=1444092132515552&version=v2.0";
+								  fjs.parentNode.insertBefore(js, fjs);
+								}(document, 'script', 'facebook-jssdk'));
+							</script>
+							<div class="fb-comments" data-href="<%= detail_car_url(@car) %>" data-numposts="10" data-colorscheme="light" mobile="false" data-colorscheme="light">
+							</div>
+						</div>
+					</div>
+					<div class="car_sidebar">
+						<div id="loan_calculator-2" class="widget_loan_calculator">
+							<div class="loan calculator-wrapper">
+								<div class="widget contacts_widget credit-simulation width20">
+									<h2><strong>Contact</strong></h2>
+									<div class="post">
+										<% if @car.user.dealer_info.title.present? %>
+											<%= link_to detail_dealer_path(@car.user) do %>
+												<b><span class="glyphicon glyphicon-bookmark"></span> <%= @car.user.dealer_info.title %></b>
+												<br><br>
+											<% end %>
+										<% end %>
+										<%= image_tag @car.user.profile.avatar.url(:medium), style: 'max-width:70px;float:left;margin-right:20px;' %>
+										<p><b><%= @car.user.profile.full_name %></b></p>
+										<p class="member-at">Join At : <br>
+											<%= time_ago_in_words(@car.user.created_at) %>
+										</p>
+										<div class="clear"></div>
+									</div><br>
+									<% if @car.user.profile.address %>
+										<div class="addr detail"><%= @car.user.profile.address %></div>
+									<% end %>
+									<% if @car.user.profile.phone %>
+										<div class="phones detail"><%= @car.user.profile.phone %></div>
+									<% end %>
+									<% if @car.user.email %>
+										<div class="email detail single_line">
+											<a href="mailto:<%= @car.user.email %>" rel="moc/eciujretniw//elpmaxe" class="email_link_replace markered"><%= @car.user.email %>
+											</a>
+										</div>
+									<% end %>
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

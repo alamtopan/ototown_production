@@ -1,0 +1,64 @@
+<div class="main_catalog" style="padding-top:0px">
+	<div class="car_image_wrapper width100">
+		<%= render 'shared/front/slide_dealer_detail', images: @dealer.images %>
+	</div>
+	<% if @dealer.dealer_info.longitude.present? %>
+		<div class="detail-google-map" id="map-dealer">
+		</div>
+	<% end %>
+	<%= @dealer.dealer_info.description.html_safe if @dealer.dealer_info.category_type == 'Workshop' %>
+	<% if @dealer.dealer_info.category_type == 'Dealer' %>
+		<div class="top_catalog_box padding-bottom0">
+			<div class="view_on_page drop_list" data-id="view_on_page">
+				<b>Total Cars:</b> <span class="gray-font"> <%= @cars_count.size %> Cars in this Dealer</span>
+			</div>
+			<div class="pagination">
+				<%= paginate @cars %>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<ul class="catalog_table">
+			<% @cars.each_with_index do |car, index| %>
+				<li class="is_dealer">
+					<%= link_to detail_car_path(car), class: 'thumb' do %>
+						<div class= "car_catalog">
+							<%= image_tag car.images.first.image %>
+							<% if car.status_sold.present? && car.status_sold == "Sold Out" %>
+								<%= image_tag "sold-out.png", class: "sold-out" %>
+							<% end %>
+						</div>
+					<% end %>
+					<div class="catalog_desc">
+						<div class="location">Location: <b><%= car.province %>, <%= car.city %></b></div>
+						<div class="title_box">
+							<h4>
+								<%= link_to detail_car_path(car) do %>
+									<%= car.name %>
+								<% end %>
+							</h4>
+							<div class="price"><%= car.price.present? ? number_to_currency(car.price, unit: 'Rp.') : 'Call Us' %></div>
+						</div>
+						<div class="clear"></div>
+						<div class="grey_area">
+							<span>Year: <b><%= car.year %></b></span>
+							<span>Brand: <b><%= car.brand %></b></span>
+							<span>Model: <b><%= car.model %></b></span>
+							<span>Condition: <b><%= car.condition %></b></span>
+						</div>
+						<div style="float:right"></div>
+						<%= link_to detail_car_path(car),class: "more markered" do %>
+							View details
+						<% end %>
+					</div>
+				</li>
+			<% end %>
+		</ul>
+		<div class="bottom_catalog_box padding-top0">
+			<div class="pagination">
+				<%= paginate @cars %>
+			</div>
+			<div class="clear"></div>
+		</div>
+	<% end %>
+</div>
+<div class="clear"></div>

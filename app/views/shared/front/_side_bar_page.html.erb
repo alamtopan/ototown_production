@@ -1,0 +1,11 @@
+<div class="sidebar">
+	<div class="widget_divider"></div>
+	<div class="widget">
+		<%= @sidebar_contact.content.html_safe if @sidebar_contact.present? %>
+	</div>
+	<div class="widget_divider"></div>
+	<div class="widget">
+		<%= @sidebar_contact_map.content.html_safe if @sidebar_contact_map.present? %>
+	</div>
+	<div class="widget_divider"></div>
+</div>
