@@ -6,27 +6,28 @@ module SeedCar
     @doc  = Nokogiri::HTML(resp.body)
     (1..30).to_a.each do |i|
       puts "Data -#{i}"
-      content = @doc.css('.detail-car-up')  
+      content = @doc.css('.car_characteristics')  
       params  = {
-                  name: @doc.css('.top-title').text.strip.gsub(/\t/, '')+"-#{i}",
-                  type_product: content.css('.detail-content').children[0].text.strip,
-                  condition: @doc.css('.detail-car-middle .car-detail-condition').css('font').text,
-                  brand: content.css('.detail-content').children[1].text.strip,
-                  model: content.css('.detail-content').children[2].text.strip, 
-                  color: content.css('.detail-content').children[4].text.strip,
-                  year:  content.css('.detail-content').children[3].text.strip,
-                  plate_number: content.css('.detail-content').children[5].text.strip,
-                  exp_date:  content.css('.detail-content').children[6].text.strip,
-                  kilometer: content.css('.detail-content').children[7].text.strip.to_i,
-                  door: content.css('.detail-content').children[8].text.strip.to_i,
-                  seat: content.css('.detail-content').children[9].text.strip.to_i,
-                  transmission: content.css('.detail-content').children[10].text.strip,
-                  engine: content.css('.detail-content').children[11].text.strip,
-                  cylinders: content.css('.detail-content').children[12].text.strip,
-                  fuel: content.css('.detail-content').children[13].text.strip,
-                  location: content.css('.detail-content').children[14].text.strip,
+                  name: @doc.css('h1').text.strip.gsub(/\t/, '')+"-#{i}",
+                  type_product: '',
+                  condition: 'New',
+                  brand: 'Honda',
+                  model: 'CRV', 
+                  color: 'Red',
+                  year:  2015,
+                  plate_number: 'KBJ 9099 IU',
+                  exp_date: '1/12/2014'.to_date,
+                  kilometer: 5000,
+                  door: 6,
+                  seat: 6,
+                  transmission: 'Manual',
+                  engine: '2000',
+                  cylinders: 4,
+                  fuel: 'Premium',
+                  location: 'Jakarta Selatan',
                   price: 15000000,
-                  user_id: User.all.shuffle.first.id
+                  user_id: User.all.shuffle.first.id,
+                  status: true
                 }  
       car = Car.where(name: params[:name]).first
       if car.present?
@@ -41,7 +42,7 @@ module SeedCar
         end
       end
       car = Car.where(name: params[:name]).first
-      items = @doc.css('#slider .field-item')
+      items = @doc.css('.carousel-inner2 .item')
       items.each do |item|
         images = {
           image: URI.parse(item.css('img').attribute('src').value),

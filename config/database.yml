@@ -3,8 +3,8 @@ default: &default
   encoding: unicode
   database: ototown_dev
   pool: 5
-  username: topan
-  password: develop123
+  username: foobar
+  password: 123123123
 
 development:
   <<: *default
