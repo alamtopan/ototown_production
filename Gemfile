@@ -55,7 +55,7 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'debugger'
+  gem 'byebug'
   gem 'quiet_assets'
   gem 'letter_opener'
 end
