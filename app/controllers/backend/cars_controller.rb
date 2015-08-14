@@ -5,6 +5,10 @@ class Backend::CarsController < Backend::ApplicationController
   before_filter :choice_condition
   before_filter :choice_status
 
+  def index
+    @cars = Car.page(params[:page]).per(20).order("id DESC")
+  end
+
   private
     def generate_select
       @users = User.all.map{|u| [u.email, u.id]}
