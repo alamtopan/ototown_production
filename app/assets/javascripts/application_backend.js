@@ -37,7 +37,6 @@
 //= require back/pages/uiTypography
 //= require back/pages/widgetsSocial
 //= require back/pages/widgetsStats
-//= require ckeditor/override
 //= require ckeditor/init
 //= require bootstrap-datepicker
 //= require cocoon
