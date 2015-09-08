@@ -7,7 +7,7 @@
 					<%= image_tag "sold-out.png", class: "sold-out" %>
 				<% end %>
 				<%= link_to detail_car_path(car) do %>
-					<%= x_image_tag car.images.first.image.url(:normal) if car.images.present? %>
+					<%= image_tag car.images.first.image.url(:normal) if car.images.present? %>
 					<div class="description">
 						<p>
 							Registration: <%= car.created_at.year %><br/>

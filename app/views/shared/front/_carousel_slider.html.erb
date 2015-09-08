@@ -4,7 +4,7 @@
   <div class="carousel-inner">
     <% @slider.each_with_index do |slider,index| %>
       <div class="item <%= 'active' if index.zero? %>">
-        <%= x_image_tag "#{slider.pic}" %>
+        <%= image_tag "#{slider.pic}" %>
         <div class="container">
           <div class="carousel-caption">
             <a href="<%= slider.url %>" class="slide_url">
