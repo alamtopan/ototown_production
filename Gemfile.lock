@@ -65,6 +65,8 @@ GEM
     capistrano-rbenv (2.0.2)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
+    capistrano-ssh-doctor (1.0.0)
+      capistrano (>= 3.1)
     capistrano3-unicorn (0.1.1)
       capistrano (>= 3.1.0)
     ckeditor (4.0.11)
@@ -286,6 +288,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails (~> 1.1.0)
   capistrano-rbenv (~> 2.0)
+  capistrano-ssh-doctor (~> 1.0)
   capistrano3-unicorn (~> 0.1.1)
   ckeditor
   cocoon
@@ -321,3 +324,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   wash_out
+
+BUNDLED WITH
+   1.10.6

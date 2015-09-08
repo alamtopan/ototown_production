@@ -68,6 +68,7 @@ group :production, :staging do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv', "~> 2.0" 
   gem 'capistrano3-unicorn', "~> 0.1.1" 
+  gem 'capistrano-ssh-doctor', '~> 1.0'
 end
 
 group :doc do
