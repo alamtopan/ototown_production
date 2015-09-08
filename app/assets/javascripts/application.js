@@ -26,7 +26,6 @@
 //= require front/js/vehicles
 //= require front/js/jquery.fancybox
 //= require front/province
-//= require ckeditor/override
 //= require ckeditor/init
 //= require cocoon
 //= require bootstrap-datepicker
